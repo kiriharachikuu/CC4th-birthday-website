@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>CC四周年生日会</title>
+		<!-- 引入 layui.css -->
+		<link href="//unpkg.com/layui@2.8.18/dist/css/layui.css" rel="stylesheet">
+		<!-- 引入 layui.js -->
+		<script src="//unpkg.com/layui@2.8.18/dist/layui.js"></script>
+		<!-- 适配手机 -->
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<script>
+		!function(n) {
+		 var e = n.document,
+		 t = e.documentElement,
+		 i = 640,
+		 d = i / 100,
+		 o = "orientationchange" in n ? "orientationchange": "resize",
+		 a = function() {
+		 var n = t.clientWidth || 320;
+		 n > 640 && (n = 640),
+		 t.style.fontSize = n / d + "px"
+		 };
+		 e.addEventListener && (n.addEventListener(o, a, !1), e.addEventListener("DOMContentLoaded", a, !1))
+		} (window);
+		</script>
+		
+		<!-- 驱动 layui.js -->
+		<script>
+		layui.use(function(){
+		  var carousel = layui.carousel;
+		  // 渲染 - 设置时间间隔、动画类型、宽高度等属性
+		  carousel.render({
+		    elem: '#ID-carousel',
+		    interval: 1800,
+		    anim: 'fade',
+		    width: 'auto',
+		    height: '220px'
+		  });
+
+		  var util = layui.util;
+		  // 自定义固定条
+		  util.fixbar({
+		    bars: [{
+		      type: '企划群：907889343',
+		      content: '群',
+		      style: 'font-size: 21px;'
+		    }],
+		    on: { 
+		      mouseenter: function(type){
+		        layer.tips(type, this, {
+		          tips: 4, 
+		          fixed: true
+		        });
+		      },
+		      mouseleave: function(type){
+		        layer.closeAll('tips');
+		      }
+		    },
+		    // 点击事件
+		    click: function(type){
+		      console.log(this, type);
+		      // layer.msg(type);
+		    }
+		  });
+		});
+		</script>
+	</head>
+	<body>
+		
+		<div>
+		<ul class="layui-nav layui-bg-gray">
+		  <li class="layui-nav-item"><a href="#"><img src="img/logo.png" height="45"/></a></li>
+		  <li class="layui-nav-item"><a href="#">CC四周年生日会</a></li>
+		  <li class="layui-nav-item">
+		      <a href="javascript:;">更多</a>
+		      <dl class="layui-nav-child">
+		      <dd><a href="https://yvex4o13ytq.feishu.cn/share/base/form/shrcnsyZMY0MR9nrzpwRiubfNVh">大合唱试音</a></dd>
+		      <dd><a href="https://yvex4o13ytq.feishu.cn/docx/LWVRdaUXVo5pUHxABJFcqFg6n1d">Q&A问答征集</a></dd>
+		      <dd><a href="#">更多...</a></dd>
+		    </dl>
+		  </li>
+		</ul>
+		</div>
+		
+		<div class="layui-carousel" id="ID-carousel">
+		  <div carousel-item>
+		    <div><center><img src="img/hechang.png" height="220"/></center></div>
+		    <div><center><img src="img/hechang.png" height="220"/></center></div>
+		    <div><center><img src="img/hechang.png" height="220"/></center></div>
+		  </div>
+		</div> 
+		
+		<blockquote class="layui-bg-gray layui-elem-quote">
+		  由于QQ把飞书链接给封禁了，然后知空就临时花了半个小时写了这个破网站，有点简陋各位见谅，有bug也不会修的（
+		</blockquote>
+		
+		<div class="layui-bg-gray" style="padding: 16px;">
+		  <div class="layui-row layui-col-space15">
+			  
+		    <div class="layui-col-md6">
+		      <div class="layui-card">
+		        <div class="layui-card-header">CC四周年Q&A问答</div>
+		        <div class="layui-card-body">
+		          截止时间：2024年2月16日10:00（以 GMT+08:00 为准）<br>
+		          格式要求：点击下方按钮详见<br><br>
+				  <a href="https://yvex4o13ytq.feishu.cn/docx/LWVRdaUXVo5pUHxABJFcqFg6n1d">
+				  	<button type="button" class="layui-btn layui-btn-normal layui-btn-radius">
+				  		<i class="layui-icon layui-icon-release"></i> 点击参与
+				  	</button>
+				  </a>
+		        </div>
+		      </div>
+		    </div>
+			
+		    <div class="layui-col-md6">
+		      <div class="layui-card">
+		        <div class="layui-card-header">《不安灵魂收容所》合唱试音</div>
+		        <div class="layui-card-body">
+		          截止时间：2023/12/08 00:00:00（以 GMT+08:00 为准）<br>
+		          格式要求：一段未经任何后期处理的（人声）纯干声，曲目不限，音频规格要求 48000Hz 24bit 单声道，flac / wav / aiff 格式。<br><br>
+				  <a href="https://yvex4o13ytq.feishu.cn/share/base/form/shrcnsyZMY0MR9nrzpwRiubfNVh">
+					  <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">
+						  <i class="layui-icon layui-icon-release"></i> 点击参与
+					  </button>
+				  </a>
+		        </div>
+		      </div>
+		    </div>
+			
+			<div class="layui-col-md6">
+			  <div class="layui-card">
+			    <div class="layui-card-header">企划加载中......</div>
+			    <div class="layui-card-body">
+			      空<br><br>
+				  <a href="#">
+					  <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">
+						  <i class="layui-icon layui-icon-release"></i> 点击参与
+					  </button>
+				  </a>
+			    </div>
+			  </div>
+			</div>
+			
+		  </div>
+		  <hr>
+		  <div class="layui-footer ws-footer">
+		    <p>
+		      Copyright © 2023 <a href="/">CC四周年生日会工作组.</a> 版权所有.</p>
+		    <p id="LAY-footer-info">
+		      <a href="#">加入我们</a>
+		      <a href="#">广告赞助</a>
+		    </p>
+		    <p>
+		      <span>
+		        鸣谢：
+		        <a href="https://layui.dev/" target="_blank" sponsor="upyun" style="color: #16baaa;">
+		          <strong>Layui</strong>
+		        </a>
+		      </span>
+		    </p>
+		  </div>
+		</div>
+	    <!-- 防红跳转 -->
+	    <script>
+	      // Usage
+	      layui.use(function(){
+	        var layer = layui.layer;
+	        // Welcome
+	        layer.msg('请务必使用浏览器打开！', {icon: 6});
+	      });
+	    </script>
+	    <script>
+	        (function () {
+	            const isQQ = () => {
+	                const userAgent = navigator.userAgent.toLowerCase()
+	                return /qq\//.test(userAgent)
+	            }
+	    
+	            const isWeChat = () => {
+	                const userAgent = navigator.userAgent.toLowerCase()
+	                return /micromessenger/.test(userAgent)
+	            }
+	    
+	            const $body = document.body
+	    
+	            if (isQQ() || isWeChat()) {
+	                $body.style.padding = 0
+	                $body.style.margin = 0
+	                $body.innerHTML = `
+	                <div style="width: 100%; height: 100vh;">
+	                    <img src="./img/pic.png" alt="picture" style="width: 100%;">
+	                </div>
+	            `
+	                document.querySelector('title').textContent = '请使用浏览器打开'
+	            }
+	        })()
+	    </script>
+	</body>
+</html>
