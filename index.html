@@ -66,8 +66,9 @@
 		    bars: [{
 		      type: '企划群：907889343',
 		      content: '群',
-		      style: 'font-size: 21px;'
+		      style: 'font-size: 21px;',
 		    }],
+			
 		    on: { 
 		      mouseenter: function(type){
 		        layer.tips(type, this, {
@@ -75,9 +76,6 @@
 		          fixed: true
 		        });
 		      },
-		      mouseleave: function(type){
-		        layer.closeAll('tips');
-		      }
 		    },
 		    // 点击事件
 		    click: function(type){
@@ -209,7 +207,7 @@
 			    <div class="layui-card-header">企划加载中......</div>
 			    <div class="layui-card-body">
 			      未获取到信息<br><br><br><br>
-					  <button type="button" class="layui-btn layui-btn-radius">
+					  <button type="button" class="layui-btn layui-btn-disabled layui-btn-radius">
 						  <i class="layui-icon layui-icon-release"></i> 点击参与
 					  </button>
 			    </div>
@@ -304,7 +302,7 @@
 			  // Optional parameters
 			  loop: false,
 			  autoplay: {
-			      delay: 4000,//1秒切换一次
+			      delay: 3500,//1秒切换一次
 			    },
 			  // If we need pagination
 			  pagination: {
