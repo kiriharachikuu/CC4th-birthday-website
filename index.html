@@ -15,10 +15,25 @@
 		<!-- 驱动 layui.js -->
 		<script>
 		layui.use(function(){
-		  var util = layui.util;
-		  var layer = layui.layer;
-		  var form = layui.form;
-		  // 自定义固定条
+		    var form = layui.form;
+		    var $ = layui.$;
+		    var layer = layui.layer;
+		    var util = layui.util;
+		    // 事件
+		    util.on('lay-on', {
+		      'test-iframe-video': function(){
+		        layer.open({
+		          type: 2,
+		          title: false,
+		          area: ['80%', '80%'],
+		          shade: 0.8,
+		          closeBtn: 0,
+		          shadeClose: true,
+		          content: '//player.bilibili.com/player.html?aid=578387058&bvid=BV1Yz4y1w7EN&cid=1333761152&p=1' // video 地址
+		        });
+		        layer.msg('点击空白区域可关闭');
+		      },
+		    })
 		  util.fixbar({
 		    bars: [{
 		      type: '企划群：907889343',
@@ -52,7 +67,7 @@
 		
 		<div>
 		<ul class="layui-nav layui-bg-gray">
-		  <li class="layui-nav-item"><a href="#"><img src="img/logo.png" height="55"/></a></li>
+		  <li class="layui-nav-item"><img src="img/logo.png" height="50"/></li>
 		  <li class="layui-nav-item">
 		      <a href="javascript:;">更多</a>
 		      <dl class="layui-nav-child">
@@ -80,12 +95,43 @@
 		    <div class="swiper-pagination"></div>
 		</div>
 		
+		<div class="layui-bg-gray" style="padding: 16px;">		
+	    <div class="layui-row layui-col-space15">
+			<div class="">
+			    <fieldset class="layui-elem-field">
+                    <legend>前言</legend>
+                    <div class="layui-field-box">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不知不觉，ChiliChill马上就要迎来四周年啦!为了这个美好的日子，ChiliChill的粉丝们自发组织了四周年生日会，欢迎各位粉丝还有各业大佬们参加!本次生日会性质为无盈利/用爱发电，欢迎各位在本次生日会中表达你们对ChiliChill的喜爱和抽象!<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次四周年生日会为视频合集形式，计划于2024年3月11日 (《心碎烧酒》投稿四周年日) 进行公开直播，具体时间安排详见四周年生日会筹备组后续公告!
+                    </div>
+                </fieldset>
+			</div>
+		</div>
+		</div>
+		
 		<div class="layui-bg-gray" style="padding: 16px;">
-		  <div class="layui-row layui-col-space15">
-			<blockquote class="layui-bg-gray layui-elem-quote">
-			  由于QQ把飞书链接给加红了，导致工作组设立在飞书的相关问卷和文档都无法直接访问，直接导致了数据收集工作无法推进。然后知空就临时花了一个小时左右的时间写了这个破网站，并存放于Vercel托管。这里集成了Q&A的相关信息和《不安灵魂收容所》合唱试音的信息，并且会强制让你跳转至浏览器。由于时间比较仓促，所以界面有点简陋各位见谅，虽然但是有bug也不会修的（
-			</blockquote>
-			<hr />
+		<div class="layui-row layui-col-space15">	  
+			<fieldset class="layui-elem-field layui-field-title">
+			  <legend>宣传视频</legend>
+			</fieldset>
+			<div class="layui-col-md4">
+				<p>&nbsp;</p>
+			</div>
+			<div class="layui-col-md4">
+			    <button lay-on="test-iframe-video"><img src="img/cover.jpg" width="100%"/></button>
+			</div>
+			<div class="layui-col-md4">
+				<p>&nbsp;</p>
+			</div>
+		</div>
+		</div>
+		
+		
+		<div class="layui-bg-gray" style="padding: 16px;">
+		<div class="layui-row layui-col-space15">		    
+			<fieldset class="layui-elem-field layui-field-title">
+			  <legend>相关活动</legend>
+			</fieldset>
 		    <div class="layui-col-md6">
 		      <div class="layui-card">
 		        <div class="layui-card-header">CC四周年Q&A问答</div>
@@ -99,8 +145,7 @@
 				  </a>
 		        </div>
 		      </div>
-		    </div>
-			
+		    </div>	
 		    <div class="layui-col-md6">
 		      <div class="layui-card">
 		        <div class="layui-card-header">《不安灵魂收容所》合唱试音</div>
@@ -115,7 +160,6 @@
 		        </div>
 		      </div>
 		    </div>
-			
 			<div class="layui-col-md6">
 			  <div class="layui-card">
 			    <div class="layui-card-header">企划加载中......</div>
@@ -128,11 +172,27 @@
 				  </a>
 			    </div>
 			  </div>
-			</div>
-			
+			</div>		
 		  </div>
-		  <hr>
-		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2099318071&auto=1&height=66"></iframe>
+		  
+		  <div class="layui-bg-gray" style="padding: 16px;">
+		  <div class="layui-row layui-col-space15">	
+		      <fieldset class="layui-elem-field layui-field-title">
+		          <legend>关于这里</legend>
+		      </fieldset>
+		  	<blockquote class="layui-bg-gray layui-elem-quote">
+		  	  由于QQ把飞书链接给加红了，导致工作组设立在飞书的相关问卷和文档都无法直接访问，直接导致了数据收集工作无法推进。于是知空就临时花了一个小时左右的时间写了这个破网站，并存放于Vercel托管。<br />
+			  这里集成了Q&A的相关信息和《不安灵魂收容所》合唱试音的信息，并且会强制让你跳转至浏览器。由于时间比较仓促，所以界面有点简陋各位见谅，虽然但是有bug也不会修的（
+		  	</blockquote>
+		  </div>
+		  </div>
+		  
+		  <div class="layui-bg-gray" style="padding: 16px;">
+		  <div class="layui-row layui-col-space15">	
+		      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2099318071&auto=1&height=66"></iframe>
+		  </div>
+		  </div>
+		  
 		  <div class="layui-footer ws-footer">		
 		    <p>Copyright © 2023 <a href="/">CC四周年生日会工作组.</a> 版权所有.</p>
 			<p>Designed by.<a href="https://space.bilibili.com/28826850">桐原知空</a></p>
@@ -161,6 +221,7 @@
 		  </div>
 		</div>
 		</div>
+		
 	    <!-- 防红跳转 -->
 	    <script>
 	      // Usage
