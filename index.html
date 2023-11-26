@@ -33,6 +33,34 @@
 		        });
 		        layer.msg('点击空白区域可关闭');
 		      },
+			   'test-page-title': function(){
+			        layer.open({
+			          type: 1,
+			          area: ['70%', '70%'], // 宽高
+			          title: false, // 不显示标题栏
+			          closeBtn: 0,
+			          shadeClose: true, // 点击遮罩关闭层
+			          content: '<img class="qr-code" src="img/QR.png">'
+			        });
+			    },
+				'iframe-qa': function(){
+				      layer.open({
+				        type: 2,
+				        title: 'CC四周年Q&A问答',
+				        shadeClose: true,
+				        area: ['100%', '100%'],
+				        content: ['https://yvex4o13ytq.feishu.cn/docx/LWVRdaUXVo5pUHxABJFcqFg6n1d', 'no']
+				    });
+				},
+				'iframe-sing': function(){
+				      layer.open({
+				        type: 2,
+				        title: '《不安灵魂收容所》合唱试音',
+				        shadeClose: true,
+				        area: ['100%', '100%'],
+				        content: ['https://yvex4o13ytq.feishu.cn/share/base/form/shrcnsyZMY0MR9nrzpwRiubfNVh', 'no']
+				    });
+				}
 		    })
 		  util.fixbar({
 		    bars: [{
@@ -62,6 +90,11 @@
 		<link rel="stylesheet" href="css/style.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/swiper-bundle.min.css"/>
 		<script src="js/swiper-bundle.min.js"></script>
+		<!-- 让 IE8/9 支持媒体查询，从而兼容栅格 -->
+		<!--[if lt IE 9]>
+		  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+		  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
 	</head>
 	<body>
 		
@@ -132,44 +165,38 @@
 			<fieldset class="layui-elem-field layui-field-title">
 			  <legend>相关活动</legend>
 			</fieldset>
-		    <div class="layui-col-md6">
+		    <div class="layui-col-md4">
 		      <div class="layui-card">
 		        <div class="layui-card-header">CC四周年Q&A问答</div>
 		        <div class="layui-card-body">
 		          截止时间：2024年2月16日10:00（以 GMT+08:00 为准）<br>
 		          格式要求：点击下方按钮详见<br><br>
-				  <a href="https://yvex4o13ytq.feishu.cn/docx/LWVRdaUXVo5pUHxABJFcqFg6n1d">
-				  	<button type="button" class="layui-btn layui-btn-normal layui-btn-radius">
+				  	<button type="button" class="layui-btn layui-btn-normal layui-btn-radius" lay-on="iframe-qa">
 				  		<i class="layui-icon layui-icon-release"></i> 点击参与
 				  	</button>
-				  </a>
 		        </div>
 		      </div>
 		    </div>	
-		    <div class="layui-col-md6">
+		    <div class="layui-col-md4">
 		      <div class="layui-card">
 		        <div class="layui-card-header">《不安灵魂收容所》合唱试音</div>
 		        <div class="layui-card-body">
 		          截止时间：2023/12/08 00:00:00（以 GMT+08:00 为准）<br>
-		          格式要求：一段未经任何后期处理的（人声）纯干声，曲目不限，音频规格要求 48000Hz 24bit 单声道，flac / wav / aiff 格式。<br><br>
-				  <a href="https://yvex4o13ytq.feishu.cn/share/base/form/shrcnsyZMY0MR9nrzpwRiubfNVh">
-					  <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">
+		          格式要求：一段未经任何后期处理的（人声）纯干声，曲目不限，音频规格要求 48000Hz 24bit 单声道，flac / wav / aiff 格式。<br>
+					  <button type="button" class="layui-btn layui-btn-normal layui-btn-radius" lay-on="iframe-sing">
 						  <i class="layui-icon layui-icon-release"></i> 点击参与
 					  </button>
-				  </a>
 		        </div>
 		      </div>
 		    </div>
-			<div class="layui-col-md6">
+			<div class="layui-col-md4">
 			  <div class="layui-card">
 			    <div class="layui-card-header">企划加载中......</div>
 			    <div class="layui-card-body">
-			      空<br><br>
-				  <a href="#">
+			      未获取到信息<br><br><br>
 					  <button type="button" class="layui-btn layui-btn-normal layui-btn-radius">
 						  <i class="layui-icon layui-icon-release"></i> 点击参与
 					  </button>
-				  </a>
 			    </div>
 			  </div>
 			</div>		
@@ -200,7 +227,7 @@
 		    <p id="LAY-footer-info">
 			    <a href="">关于我们</a>
 		        <a href="">加入我们</a>
-				<a href="">资助我们</a>
+				<button lay-on="test-page-title">资助我们</button>
 		    </p>
 			<br />
 		    <p>
@@ -262,7 +289,7 @@
 			  // Optional parameters
 			  loop: false,
 			  autoplay: {
-			      delay: 3000,//1秒切换一次
+			      delay: 4000,//1秒切换一次
 			    },
 			  // If we need pagination
 			  pagination: {
