@@ -3,8 +3,8 @@
 	    width: 100%;
 	    height: 170px;
 		--swiper-pagination-color: #16baaa;
-		--swiper-navigation-color: #ffffff;/* 单独设置按钮颜色 */
-		--swiper-navigation-size: 30px;/* 设置按钮大小 */
+		--swiper-navigation-color: #ffffff;
+		--swiper-navigation-size: 30px;
 	}  
 	.swiper-slide {
 	      text-align: center;
@@ -26,8 +26,8 @@
 	    width: 100%;
 	    height: 630px;
 		--swiper-pagination-color: #16baaa;
-		--swiper-navigation-color: #ffffff;/* 单独设置按钮颜色 */
-		--swiper-navigation-size: 60px;/* 设置按钮大小 */
+		--swiper-navigation-color: #ffffff;
+		--swiper-navigation-size: 60px;
 	}
 	.swiper-slide {
 	      text-align: center;
@@ -45,3 +45,34 @@
 	    object-fit: cover;
 	}
 }
+.qr-code{
+	width: 350px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+}
+ .swiper-slide-2 {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+	  transition: 300ms;
+	  transform: scale(0.8);
+    }
+	.swiper-slide-active,.swiper-slide-duplicate-active{
+      transform: scale(1);
+	}
