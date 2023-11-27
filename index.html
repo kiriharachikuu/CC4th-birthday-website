@@ -15,16 +15,17 @@
 		<script>(function(){self!==parent&&(location.href="about:blank")})();</script>
 		<link rel="stylesheet" href="css/style.css" rel="stylesheet">
 		
+		<!-- 引入 swiper -->
 		<link rel="stylesheet" href="css/swiper-bundle.min.css"/>
 		<script src="js/swiper-bundle.min.js"></script>
 		
+		<!-- 引入 jQuery -->
 		<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
 		
-		<!-- 引入 layui.css -->
+		<!-- 引入 layui -->
 		<link href="//unpkg.com/layui@2.8.18/dist/css/layui.css" rel="stylesheet">
-		<!-- 引入 layui.js -->
 		<script src="//unpkg.com/layui@2.8.18/dist/layui.js"></script>		
-		<!-- 驱动 layui.js -->
+		<!-- 驱动 layui -->
 		<script>
 		layui.use(function(){
 		    var form = layui.form;
@@ -98,32 +99,17 @@
 				    });
 				}
 		    })
+		  // 返回顶部固定条
 		  util.fixbar({
-		    bars: [{
-		      type: '企划群：907889343',
-		      content: '群',
-		      style: 'font-size: 21px;',
-		    }],
-			
-		    on: { 
-		      mouseenter: function(type){
-		        layer.tips(type, this, {
-		          tips: 4, 
-		          fixed: true
-		        });
-		      },
-		    },
-		    // 点击事件
-		    click: function(type){
-		      console.log(this, type);
-		      // layer.msg(type);
-		    }
+		    bars: [{type: 'top', icon: 'layui-icon-top'}],
 		  });
 		});
 		</script>
 	</head>
 	
-	<body class="starlight">
+	<!-- 开始 -->
+	<body>
+		<!-- 导航 -->
         <ul class="layui-nav layui-bg-gray">
         	<li class="layui-nav-item"><img src="img/logo.png" height="50" /></li>
         	<li class="layui-nav-item">
@@ -131,12 +117,12 @@
         		<dl class="layui-nav-child">
         		    <dd><a href="https://yvex4o13ytq.feishu.cn/share/base/form/shrcnsyZMY0MR9nrzpwRiubfNVh">大合唱试音</a></dd>
         		    <dd><a href="https://yvex4o13ytq.feishu.cn/docx/LWVRdaUXVo5pUHxABJFcqFg6n1d">Q&A问答征集</a></dd>
-        		    <dd><a href="#">更多...</a></dd>
+        		    <dd><a>更多...</a></dd>
         		</dl>
         	</li>
         </ul>
         
-        <!-- Slider main container -->
+        <!-- 轮播 -->
         <div class="swiper">
         	<!-- Additional required wrapper -->
         	<div class="swiper-wrapper">
@@ -157,7 +143,8 @@
         	</div>
         </div>
         
-        <div style="padding: 16px;">
+		<!-- 导语 -->
+        <div class="layui-bg-gray" style="padding: 16px;">
         	<div class="layui-row layui-col-space15">
         		<div class="">
         		    <fieldset class="layui-elem-field">
@@ -171,7 +158,8 @@
         	</div>
         </div>
         
-        <div style="padding: 16px;">
+		<!-- 视频 -->
+        <div class="layui-bg-gray" style="padding: 16px;">
         	<div class="layui-row layui-col-space15">
         		<fieldset class="layui-elem-field layui-field-title">
         		    <legend>宣传视频</legend>
@@ -200,10 +188,13 @@
 						未解锁
 					</p>
         		</div>
+				<br />
+				<button type="button" class="layui-btn layui-btn-fluid"><i class="layui-icon layui-icon-search"></i>查看更多</button>
         	</div>
         </div>
         
-        <div style="padding: 16px;">
+		<!-- 活动 -->
+        <div class="layui-bg-gray" style="padding: 16px;">
             <div class="layui-row layui-col-space15">
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend>相关活动</legend>
@@ -211,13 +202,12 @@
                 <div class="layui-col-md4">
                     <div class="layui-card">
                         <div class="layui-card-header">
-							<span class="layui-badge layui-bg-green">进行中</span>
-							CC四周年稿件征集
+							<h3><span class="layui-badge layui-bg-green">进行中</span> 四周年稿件征集</h3>
 						</div>
                         <div class="layui-card-body">
-                            截止时间：【报名】2024/01/01 00:00:00（以 GMT+08:00 为准）<br>
+                            <strong>截止时间：</strong>【报名】2024/01/01 00:00:00（以 GMT+08:00 为准）<br>
                             【投稿】2024/03/01 00:00:00（以 GMT+08:00 为准）<br>
-                            格式要求：点击下方按钮详见<br><br>
+                            <strong>格式要求：</strong>点击下方按钮详见<br><br>
                             <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=S7QpVwWgDlEJAz8hpdEbMCYrQzSqwOYN&authKey=VufjNuisinMKRzXOYavFFy2c5GwQtZ2foXebqFYIIwSlgm2Bgq49yqoHpxfnZsXT&noverify=0&group_code=907889343">
                                 <button type="button" class="layui-btn layui-btn-primary layui-border-green">
                                     <i class="layui-icon layui-icon-release"></i> 点击参与
@@ -229,12 +219,11 @@
                 <div class="layui-col-md4">
                     <div class="layui-card">
                         <div class="layui-card-header">
-							<span class="layui-badge layui-bg-green">进行中</span>
-							CC四周年Q&A问答
+							<h3><span class="layui-badge layui-bg-green">进行中</span> 四周年Q&A问答</h3>
 						</div>
                         <div class="layui-card-body">
-                            截止时间：2024/02/16 10:00:00（以 GMT+08:00 为准）<br>
-                            格式要求：点击下方按钮详见<br><br><br>
+                            <strong>截止时间：</strong>2024/02/16 10:00:00（以 GMT+08:00 为准）<br>
+                            <strong>格式要求：</strong>点击下方按钮详见<br><br><br>
                             <button type="button" class="layui-btn layui-btn-primary layui-border-green" lay-on="iframe-qa">
                                 <i class="layui-icon layui-icon-release"></i> 点击参与
                             </button>
@@ -244,13 +233,11 @@
                 <div class="layui-col-md4">
                     <div class="layui-card">
                         <div class="layui-card-header">
-							<span class="layui-badge layui-bg-green">进行中</span>
-							《不安灵魂收容所》合唱试音
-							
+							<h3><span class="layui-badge layui-bg-green">进行中</span> 《不安灵魂收容所》试音</h3>
 						</div>
                         <div class="layui-card-body">
-                            截止时间：2023/12/08 00:00:00（以 GMT+08:00 为准）<br>
-                            格式要求：一段未经任何后期处理的（人声）纯干声，曲目不限，音频规格要求 48000Hz 24bit 单声道，flac / wav / aiff 格式。<br><br>
+                            <strong>截止时间：</strong>2023/12/08 00:00:00（以 GMT+08:00 为准）<br>
+                            <strong>格式要求：</strong>一段未经任何后期处理的（人声）纯干声，曲目不限，音频规格要求 48000Hz 24bit 单声道，flac / wav / aiff 格式。<br><br>
                             <button type="button" class="layui-btn layui-btn-primary layui-border-green" lay-on="iframe-sing">
                                 <i class="layui-icon layui-icon-release"></i> 点击参与
                             </button>
@@ -259,7 +246,9 @@
                 </div>
                 <div class="layui-col-md4">
                     <div class="layui-card">
-                        <div class="layui-card-header">企划加载中......</div>
+                        <div class="layui-card-header">		
+							<h3><span class="layui-badge layui-bg-gray">未开始</span> 企划加载中......</h3>
+						</div>
                         <div class="layui-card-body">
                             未获取到信息<br><br><br><br>
                             <button type="button" class="layui-btn layui-btn-disabled layui-btn-radius">
@@ -271,19 +260,20 @@
             </div>
         </div>
 		
-        <div style="padding: 16px;">
+		<!-- 招募 -->
+        <div class="layui-bg-gray" style="padding: 16px;">
             <div class="layui-row layui-col-space15">
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend>招募岗位</legend>
                 </fieldset>
                 <div class="layui-collapse" lay-accordion>
                     <div class="layui-colla-item">
-                        <div class="layui-colla-title">综合类</div>
+                        <div class="layui-colla-title"><h3>综合类</h3></div>
                         <div class="layui-colla-content">
                             <div class="layui-col-md4">
                                 <div class="layui-card">
                                     <div class="layui-card-header">
-                                        <h2>无</h2>
+                                        <h3>无</h3>
                                     </div>
                                     <div class="layui-card-body">
                                         暂无岗位需求
@@ -293,7 +283,7 @@
                             <div class="layui-col-md4">
                                 <div class="layui-card">
                                     <div class="layui-card-header">
-                                        <h2>无</h2>
+                                        <h3>无</h3>
                                     </div>
                                     <div class="layui-card-body">
                                         暂无岗位需求
@@ -303,7 +293,7 @@
                             <div class="layui-col-md4">
                                 <div class="layui-card">
                                     <div class="layui-card-header">
-                                        <h2>无</h2>
+                                        <h3>无</h3>
                                     </div>
                                     <div class="layui-card-body">
                                         暂无岗位需求
@@ -313,16 +303,16 @@
                         </div>
                     </div>
                     <div class="layui-colla-item" >
-                        <div class="layui-colla-title"><span class="layui-badge">急需</span> 美术类</div>
+                        <div class="layui-colla-title"><h3><span class="layui-badge">急需</span> 美术类</h3></div>
                         <div class="layui-colla-content layui-show">
                             <div class="layui-col-md4">
                                 <div class="layui-card">
                                     <div class="layui-card-header">
-                                        <h2>美术/美工组长</h2>
+                                        <h3>美术/美工组长</h3>
                                     </div>
                                     <div class="layui-card-body">
                                         <strong>招募人数：</strong>1人<br>
-                                        <strong>工作难度：</strong>★★★★★<br>
+                                        <strong>工作难度：</strong><span class="layui-badge layui-bg-orange">★★★★★</span><br>
                                         <strong>职位要求：</strong>1.参与本日生日会稿件投票； 2.把握生日会整体美术风格，与其他美工协调开展美术工作； 3.根据总体策划，制作相关美术内容。
                                     </div>
                                 </div>
@@ -330,11 +320,11 @@
                             <div class="layui-col-md4">
                                 <div class="layui-card">
                                     <div class="layui-card-header">
-                                        <h2>过场动画监督</h2>
+                                        <h3>过场动画监督</h3>
                                     </div>
                                     <div class="layui-card-body">
                                         <strong>招募人数：</strong>1人<br>
-                                        <strong>工作难度：</strong>★★★★★<br>
+                                        <strong>工作难度：</strong><span class="layui-badge layui-bg-orange">★★★★★</span><br>
                                         <strong>职位要求：</strong>1.参与本日生日会稿件投票； 2.根据总体策划内容，制作过场动画。
                                     </div>
                                 </div>
@@ -342,11 +332,11 @@
                             <div class="layui-col-md4">
                                 <div class="layui-card">
                                     <div class="layui-card-header">
-                                        <h2>美工</h2>
+                                        <h3>美工</h3>
                                     </div>
                                     <div class="layui-card-body">
                                         <strong>招募人数：</strong>2人<br>
-                                        <strong>工作难度：</strong>★★★★<br>
+                                        <strong>工作难度：</strong><span class="layui-badge layui-bg-orange">★★★★</span><br>
                                         <strong>职位要求：</strong>1.参与本日生日会稿件投票； 2.协助美术/美工组长，完成美工内容制作（排版设计）。
                                     </div>
                                 </div>
@@ -354,11 +344,11 @@
                             <div class="layui-col-md4">
                                 <div class="layui-card">
                                     <div class="layui-card-header">
-                                        <h2>过场动画美术</h2>
+                                        <h3>过场动画美术</h3>
                                     </div>
                                     <div class="layui-card-body">
                                         <strong>招募人数：</strong>5人<br>
-                                        <strong>工作难度：</strong>★★★★<br>
+                                        <strong>工作难度：</strong><span class="layui-badge layui-bg-orange">★★★★</span><br>
                                         <strong>职位要求：</strong>1.参与本日生日会稿件投票； 2.协助过场动画监督，完成制作过场动画。
                                     </div>
                                 </div>
@@ -369,7 +359,8 @@
             </div>
         </div>
 		
-        <div style="padding: 16px;">
+		<!-- 关于 -->
+        <div class="layui-bg-gray" style="padding: 16px;">
             <div class="layui-row layui-col-space15">
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend>关于这里</legend>
@@ -380,41 +371,60 @@
                 </blockquote>
             </div>
         </div>
-        
-        <div style="padding: 16px;">
-            <div class="layui-row layui-col-space15">
-                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2099318071&auto=1&height=66"></iframe>
-            </div>
-        </div>
-        
-        <div class="layui-footer ws-footer">
-            <p>Copyright © 2023 <a href="/">CC四周年生日会工作组.</a> 版权所有.</p>
-            <p>Designed by.<a href="https://space.bilibili.com/28826850">桐原知空</a></p>
-            <br />
-            <p id="LAY-footer-info">
-                <a href="">关于我们</a>
-                <a href="">加入我们</a>
-                <button lay-on="page-qr">资助我们</button>
-                <a href="https://www.chilichill.fans/">CFP粉丝站（建设中）</a>
-                <a href="https://www.chilichill-music.com/">ChiliChill官网</a>
-            </p>
-            <br />
-            <p>
-                <span>
-                    鸣谢：
-                    <a href="https://layui.dev/" target="_blank" sponsor="upyun" style="color: #16baaa;">
-                        <strong> Layui </strong>
-                    </a>
-                    <a href="https://swiperjs.com/" target="_blank" sponsor="upyun" style="color: #0080ff;">
-                        <strong> swiper </strong>
-                    </a>
-                    <a href="https://vercel.com/" target="_blank" sponsor="upyun" style="color: #000000;">
-                        <strong> vercel </strong>
-                    </a>
-                </span>
-            </p>
-            <br />
-        </div>    		
+
+        <!-- 页脚 -->
+		<div class="layui-footer ws-footer">
+			<ul class="ignore">
+				<li><a href="javascript:translate.changeLanguage('english');">English</a> | <a href="javascript:translate.changeLanguage('chinese_simplified');">简体中文</a> | <a href="javascript:translate.changeLanguage('chinese_traditional');">繁體中文</a></li>
+			</ul>
+		  <p>Copyright © 2023 <a>CC生日会工作组.</a> 版权所有. </p>
+		  <p>Designed by.<a href="https://space.bilibili.com/28826850">桐原知空</a></p>
+		  <hr />
+		  <p id="LAY-footer-info">
+		      <a>关于我们</a> | 
+		      <a>加入我们</a> | 
+		      <a lay-on="page-qr">资助我们</a>
+			  <br />
+		      <a href="https://www.chilichill.fans/">CFP粉丝站（建设中）</a> | 
+		      <a href="https://www.chilichill-music.com/">ChiliChill官网</a>
+		  </p>
+		  <p>
+		    <span>
+				<a>
+				    <button class="btn-weibo"></button>
+				</a>
+				<a>
+				    <button class="btn-twi"></button>
+				</a>
+		        <a href="https://space.bilibili.com/3546585059297450">
+		            <button class="btn-bili"></button>
+		        </a>
+				<a>
+				    <button class="btn-qqmusic"></button>
+				</a>
+		        <a>
+		            <button class="btn-wyy"></button>
+		        </a>
+		    </span>
+		  </p>
+		</div>
+
+		
+		<!-- 多语种翻译 -->
+        <script>
+        	layui.extend({
+        		translate: '{/}https://mail_osc.gitee.io/translate_layui/layui_exts/translate/translate' // {/}的意思即代表采用自有路径，即不跟随 base 路径
+        	})
+        	//使用拓展模块
+        	layui.use(['translate'], function(){
+        		var translate = layui.translate;
+        		translate.selectLanguageTag.show = false; //不出现的select的选择语言
+        		//当页面加载完后执行翻译操作
+        		window.onload = function () {
+        			translate.execute();
+        		};  
+        	});
+        </script>
 		
 	    <!-- 防红跳转 -->
 	    <script>
