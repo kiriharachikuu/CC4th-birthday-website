@@ -1,6 +1,7 @@
 html, body{
 	width: 100%;
 	height: 100%;
+	overflow-x: hidden;
 }
 @media screen and (max-device-width:400px){
 	.swiper {
@@ -23,7 +24,7 @@ html, body{
 	    width: 100%;
 	    height: 100%;
 	    object-fit: cover;
-	}	
+	}
 }
 @media screen and (min-device-width:401px){
 	.swiper {
@@ -99,6 +100,9 @@ html, body{
     text-align: center;
     color: #777;
 }
+.bili-button{
+		width: 80%;
+	}
 
 .btn-weibo {
 	border: none;
