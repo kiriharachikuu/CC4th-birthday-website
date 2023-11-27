@@ -92,3 +92,97 @@ html, body{
 	padding:0;
 	margin:0;
 }
+
+.ws-footer {
+    padding: 30px 15px;
+    line-height: 30px;
+    text-align: center;
+    color: #777;
+}
+
+.btn-weibo {
+	border: none;
+    color: grey;
+	margin-right: 5px;
+	margin-top: -2px;
+	padding: 16px 16px 16px 16px;
+	font-size: 16px;
+	cursor: pointer;
+	background-image: url("../img/icon/weibo.svg");
+	background-size: 32px auto; 
+	background-repeat: no-repeat;
+	}
+.btn-twi {
+	border: none;
+    color: grey;
+	margin-right: 5px;
+	margin-top: -2px;
+	padding: 16px 16px 16px 16px;
+	font-size: 16px;
+	cursor: pointer;
+	background-image: url("../img/icon/twi.svg");
+	background-size: 32px auto; 
+	background-repeat: no-repeat;
+	}
+.btn-xhs {
+	border: none;
+    color: grey;
+	margin-right: 5px;
+	margin-top: -2px;
+	padding: 16px 16px 16px 16px;
+	font-size: 16px;
+	cursor: pointer;
+	background-image: url("../img/icon/xhs.svg");
+	background-size: 32px auto; 
+	background-repeat: no-repeat;
+	}
+.btn-bili {
+	border: none;
+    color: grey;
+	margin-right: 5px;
+	margin-top: -2px;
+	padding: 16px 16px 16px 16px;
+	font-size: 16px;
+	cursor: pointer;
+	background-image: url("../img/icon/bili.svg");
+	background-size: 32px auto; 
+	background-repeat: no-repeat;
+	}
+.btn-ytb {
+		border: none;
+	    color: grey;
+		margin-right: 5px;
+		margin-top: -2px;
+		padding: 16px 16px 16px 16px;
+		font-size: 16px;
+		cursor: pointer;
+		background-image: url("../img/icon/ytb.svg");
+		background-size: 32px auto; 
+		background-repeat: no-repeat;
+		}
+.btn-wyy {
+	border: none;
+    color: grey;
+	margin-right: 5px;
+	margin-top: -2px;
+	padding: 16px 16px 16px 16px;
+	font-size: 16px;
+	cursor: pointer;
+	background-image: url("../img/icon/wyy.svg");
+	background-size: 32px auto; 
+	background-repeat: no-repeat;
+	}
+.btn-qqmusic {
+	border: none;
+    color: grey;
+	margin-right: 5px;
+	margin-top: -2px;
+	padding: 16px 16px 16px 16px;
+	font-size: 16px;
+	cursor: pointer;
+	background-image: url("../img/icon/qqmusic.svg");
+	background-size: 32px auto; 
+	background-repeat: no-repeat;
+	}
+     
+     
