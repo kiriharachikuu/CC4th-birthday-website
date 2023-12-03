@@ -16,8 +16,8 @@
 		<link rel="stylesheet" href="css/style.css" rel="stylesheet">
 		
 		<!-- 引入 swiper -->
-		<link rel="stylesheet" href="css/swiper-bundle.min.css"/>
-		<script src="js/swiper-bundle.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/Swiper/11.0.5/swiper-bundle.min.css"/>
+		<script src="https://cdn.staticfile.org/Swiper/11.0.5/swiper-bundle.js"></script>
 		
 		<!-- 引入 jQuery -->
 		<script src="https://cdn.staticfile.org/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
@@ -109,6 +109,17 @@
 	
 	<!-- 开始 -->
 	<body>
+		<div class="loading">
+		    <div class="loading-image">
+				<img src="img/Loading.gif" width="200px"/>
+			</div>
+			<br />
+			<div class="loading-text">
+				正在加载中...
+			</div>
+		</div>
+		
+		<div class="page-container">
 		<!-- 导航 -->
         <ul class="layui-nav layui-bg-gray">
         	<li class="layui-nav-item"><img src="img/logo.webp" height="50" /></li>
@@ -453,6 +464,7 @@
 		    </span>
 		  </p>
 		</div>
+		</div>
 
 		
 		<!-- 多语种翻译 -->
@@ -472,13 +484,6 @@
         </script>
 		
 	    <!-- 防红跳转 -->
-	    <script>
-	        layui.use(function(){
-	            var layer = layui.layer;
-	            // Welcome
-	            layer.msg('请务必使用浏览器打开！', {icon: 0});
-	        });
-	    </script>
 	    <script>
 			(function() {
 			    const isQQ = () => {
@@ -528,5 +533,17 @@
 			  },
 			});
 		</script>
+		<script>
+		window.addEventListener('load', function() {
+		    // 隐藏 loading 页面
+		    var loading = document.querySelector('.loading');
+		    loading.style.display = 'none';
+		    
+		    // 显示网页内容
+		    var pageContainer = document.querySelector('.page-container');
+		    pageContainer.style.display = 'block';
+		});
+		</script>
+
 	</body>
 </html>
