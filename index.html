@@ -80,13 +80,13 @@
 			          content: '<img class="qr-code" src="img/qr.webp">'
 			        });
 			    },
-				'iframe-qa': function(){
+				'iframe-sing1': function(){
 				      layer.open({
 				        type: 2,
-				        title: 'CC四周年Q&A问答',
+				        title: '《不安灵魂收容所》试音结果查询',
 				        shadeClose: true,
 				        area: ['100%', '100%'],
-				        content: ['//yvex4o13ytq.feishu.cn/docx/LWVRdaUXVo5pUHxABJFcqFg6n1d', 'yes']
+				        content: ['//cloud.seatable.cn/external-apps/e2a10df7-08e9-4280-988b-d756b3134f44/', 'yes']
 				    });
 				},
 				'iframe-sing': function(){
@@ -262,9 +262,11 @@
                         <div class="layui-card-body">
                             <strong>截止时间：</strong>2024/02/16 10:00:00（以 GMT+08:00 为准）<br>
                             <strong>格式要求：</strong>点击下方按钮详见<br><br><br>
-                            <button type="button" class="layui-btn layui-btn-primary layui-border-green" lay-on="iframe-qa">
-                                <i class="layui-icon layui-icon-release"></i> 点击参与
-                            </button>
+                            <a href="https://yvex4o13ytq.feishu.cn/docx/LWVRdaUXVo5pUHxABJFcqFg6n1d?from=from_copylink">
+                                <button type="button" class="layui-btn layui-btn-primary layui-border-green">
+                                    <i class="layui-icon layui-icon-release"></i> 点击参与
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -279,6 +281,9 @@
                             <button type="button" class="layui-btn layui-btn-primary layui-border-green" lay-on="iframe-sing">
                                 <i class="layui-icon layui-icon-release"></i> 点击参与
                             </button>
+							<button type="button" class="layui-btn layui-btn-primary layui-border-green" lay-on="iframe-sing1">
+							    <i class="layui-icon layui-icon-search"></i> 结果查询
+							</button>
                         </div>
                     </div>
                 </div>
@@ -289,7 +294,7 @@
 						</div>
                         <div class="layui-card-body">
                             未获取到信息<br><br><br><br>
-                            <button type="button" class="layui-btn layui-btn-disabled layui-btn-radius">
+                            <button type="button" class="layui-btn layui-btn-disabled layui-btn-primary layui-border-green">
                                 <i class="layui-icon layui-icon-release"></i> 点击参与
                             </button>
                         </div>
@@ -523,17 +528,6 @@
 			    prevEl: '.swiper-button-prev',
 			  },
 			});
-		</script>
-		<script>
-		window.addEventListener('load', function() {
-		    // 隐藏 loading 页面
-		    var loading = document.querySelector('.loading');
-		    loading.style.display = 'none';
-		    
-		    // 显示网页内容
-		    var pageContainer = document.querySelector('.page-container');
-		    pageContainer.style.display = 'block';
-		});
 		</script>
 
 	</body>
