@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        li,ul,a,input {
+            list-style: none;
+            text-decoration: none;
+            outline: none;
+        }
+        @keyframes birddown {
+            from {
+                background-image: url(img/down_bird0.png);
+            }
+            to {
+                background-image: url(img/down_bird1.png);
+            }
+        }
+        @keyframes birdup {
+            from {
+                background-image: url(img/up_bird0.png);
+            }
+            to {
+                background-image: url(img/up_bird1.png);
+            }
+        }
+        @keyframes move {
+            from {
+                transform: translateY(-2rem);
+            }
+            to {
+                transform: translateY(2rem);
+            }
+        }
+        @keyframes bird {
+            from {
+                background-image: url(img/bird0.png);
+            }
+            to {
+                background-image: url(img/bird1.png);
+            }
+        }
+        .contain {
+            width: 320px;
+            height: 568px;
+            background-image: url(./img/bg.png);
+            background-size: 100% 100%;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .top {
+            position: absolute;
+            width: 62px;
+            top: 0;
+            background-image: url(img/up_mod.png);
+        }
+        .top div {
+            width: 62px;
+            height: 60px;
+            position: absolute;
+            bottom: 0;
+            background-image: url(img/up_pipe.png);
+        }
+        .bottom {
+            position: absolute;
+            width: 62px;
+            bottom: 0;
+            background-image: url(img/down_mod.png);
+        }
+        .bottom div {
+            width: 62px;
+            height: 60px;
+            position: absolute;
+            top: 0;
+            background-image: url(img/down_pipe.png);
+        }
+        #bird {
+            position: absolute;
+            top: 100px;
+            width: 40px;
+            height: 30px;
+            background-size: 100% 100%;
+            left: 20px;
+            display: none;
+        }
+        .birddown {
+            animation: birddown 0.05s linear infinite;
+        }
+        .birdup {
+            animation: birdup 0.05s linear infinite;
+        }
+        #start {
+            margin-top: 5rem;
+            overflow: hidden;
+            position: relative;
+            z-index: 100;
+        }
+        #start>div:nth-of-type(1) {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 3rem;
+            animation: move 2s linear infinite alternate;
+        }
+        #start>div:nth-of-type(1) .head {
+            width: 236px;
+            height: 77px;
+            background-image: url(img/head.png);
+        }
+        #start>div:nth-of-type(1) .start_bird {
+            width: 40px;
+            height: 26px;
+            background-image: url(img/bird0.png);
+            animation: bird .5s linear infinite;
+        }
+        div.but {
+            width: 96px;
+            height: 33px;
+            background-image: url(img/ok.png);
+            margin: 4rem auto;
+        }
+        #end {
+            text-align: center;
+            margin-top: 4rem;
+            display: none;
+            position: relative;
+            z-index: 100;
+        }
+        #end .board {
+            width: 269px;
+            height: 135px;
+            background-image: url(img/message.png);
+            margin: 5rem auto;
+            position: relative;
+        }
+        #end .board p {
+            position: absolute;
+        }
+        #end .board p.score {
+            right: 50px;
+            top: 40px;
+        }
+        #end .board p.best {
+            right: 50px;
+            top: 90px;
+        }
+        #score {
+            height: 39px;
+            text-align: center;
+            position: relative;
+            z-index: 1000;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="contain">
+        <div id="score">
+            <img src="img/0.png" alt="">
+        </div>
+        <div id="start">
+            <div>
+                <div class="head"></div>
+                <div class="start_bird"></div>
+            </div>
+            <div class="but"></div>
+        </div>
+        <ul>
+            <!--管理管道-->
+            <!--<li class="top">
+                <div></div>
+            </li>
+            <li class="bottom">
+                <div></div>
+            </li>-->
+        </ul>
+        <div id="bird" class="birddown"></div>
+        <div id="end">
+            <img src="img/game_over.png" alt="">
+            <div class="board">
+                <p class="score">0</p>
+                <p class="best">0</p>
+            </div>
+            <div class="but"></div>
+        </div>
+    </div>
+    <script src="./js/public.js"></script>
+    <script>
+        var bgDis = 0;//bg的移动距离
+        var sw = 320;
+        var sh = 568;
+        var space = 100;  //创建管道的间隔
+        var count = 0;  //管道的计数
+        var isDown = true;//判断是否向下飞
+        var speed = 0;//控制小鸟的速度
+        var score = 0;
+        if (isPhone()) {
+            var bg = document.querySelector('.contain');
+            sw = document.documentElement.clientWidth + 'px';
+            sh = document.documentElement.clientHeight + 'px';
+            bg.style.width = sw;
+            bg.style.height = sh;
+        }
+        function start() {
+            timer = setInterval(function(){
+                 bgMove();
+                 pipeMove();
+                 birdMove();
+                 check();
+            },30)
+        }
+        //为ok添加点击事件
+        var btn = document.querySelectorAll('.but');
+        btn[0].addEventListener('click',function() {
+            var start1 = document.querySelector('#start');
+            var bird = document.querySelector('#bird');
+            start1.style.display = 'none';
+            bird.style.display = 'block';
+            start();
+        })
+        btn[1].addEventListener('click',function() {
+            again();
+        })
+        function bgMove() {
+            var bg = document.querySelector('.contain');
+            bgDis -= 5;
+            bg.style.backgroundPosition = `${bgDis}px 0`;
+        }
+        function pipeMove() {
+            //1.创建管道
+            createPipe();
+            //2.管道移动
+            var ul = document.querySelector('ul');
+            var li = document.querySelectorAll('li');
+            li.forEach(function(value,index,arr){
+                arr[index].style.left = arr[index].offsetLeft-2+'px';
+                if(arr[index].offsetLeft<=-62) {
+                    ul.removeChild(arr[index]);
+                }
+                if(arr[index].offsetLeft+arr[index].offsetWidth<20) {
+                    if(arr[index].getAttribute("able") == 0) {
+                        score++;
+                        arr[index].setAttribute("able",'1');
+                    }
+                    setScore();
+                }
+            })
+        }
+        function setScore() {
+            var arr = (score + "").split("");
+            var str = "";
+            for (var i=0; i<arr.length; i++) {
+                str += `<img src="img/${arr[i]}.png">`;
+            }
+            var scorex = document.querySelector('#score');
+            scorex.innerHTML = str;
+        }
+        function createPipe() {
+            count ++;
+            if (count != space) {
+                return ;
+            }
+            count = 0;
+            var pipeheight = rand(100,300);
+            var ul = document.querySelector('ul');
+            var str = `<li class="top" able="0" style="height:${pipeheight+'px'};left:${sw+'px'}"><div></div></li><li class="bottom" style="height:${sh-pipeheight-120+'px'};left:${sw+'px'}"><div></div></li>`;
+            ul.insertAdjacentHTML('beforeend',str);
+        }
+        function birdMove() {
+            var bird = document.querySelector('#bird');
+            if(bird.offsetTop<0||bird.offsetTop>sh-30) {
+                clearInterval(timer);
+                gameOver();
+                return;
+            }
+            if(isDown) {
+                speed += 0.4;
+                speed = speed > 8 ? 8 : speed;
+            }
+            else{
+                speed += 0.7;
+                if(speed>=0) {
+                    speed = 0;
+                    isDown = true;
+                    bird.className = 'birddown';
+                }
+            }
+            var bird = document.querySelector('#bird');
+            bird.style.top = bird.offsetTop +speed + 'px';
+        }
+        var contain = document.querySelector('.contain');
+        contain.addEventListener('click',function() {
+            isDown = false;
+            speed = -8;
+            var bird = document.querySelector('#bird');
+            bird.className = 'birdup';
+        })
+        contain.touchstart = function(e) {
+            e.preventDefault();
+            isDown = false;
+            speed = -8;
+            var bird = document.querySelector('#bird');
+            bird.className = 'birdup';
+        }
+        function again() {
+            bgDis = 0;//bg的移动距离
+            count = 0;  //管道的计数
+            isDown = true;//判断是否向下飞
+            speed = 0;//控制小鸟的速度
+            score = 0;//初始化score
+            setScore();
+            var ul = document.querySelector('ul');
+            ul.innerHTML = '';//清空管道
+            var bird = document.querySelector('#bird');
+            bird.style.top = 100+'px';
+            var start1 = document.querySelector('#start');
+            var bird = document.querySelector('#bird');
+            var end = document.querySelector('#end');
+            start1.style.display = 'block';
+            bird.style.display = 'none';
+            end.style.display = 'none';
+        }
+        function check() {
+            var bird = document.querySelector('#bird');
+            var li = document.querySelectorAll('li');
+            li.forEach(function(value,index,arr){
+                if(isCrash(arr[index],bird)){
+                    clearInterval(timer);
+                    gameOver();
+                    return;
+                }
+            })
+        }
+        function gameOver() {
+            var end = document.querySelector('#end');
+            end.style.display = 'block';
+            var socrer = document.querySelector('.score');
+            socrer.innerHTML = score;
+            if (localStorage.best/1 < score) {
+                localStorage.best = score;
+            }
+            var best = document.querySelector('.best');
+            best.innerHTML = localStorage.best;
+        }
+    </script>
+</body>
+</html>
