@@ -24,8 +24,8 @@
 		<script src="//cdn.staticfile.org/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
 		
 		<!-- 引入 layui -->
-		<link href="//cdn.staticfile.org/layui/2.9.1/css/layui.css" rel="stylesheet">
-		<script src="//cdn.staticfile.org/layui/2.9.1/layui.js"></script>
+		<link href="layui/css/layui.css" rel="stylesheet">
+		<script src="layui/layui.js"></script>
 		<!-- 驱动 layui -->
 		<script>
 		layui.use(function(){
@@ -33,6 +33,8 @@
 		    var $ = layui.$;
 		    var layer = layui.layer;
 		    var util = layui.util;
+			// 输出版本号
+			lay('#version').html(layui.v);
 		    // 事件
 		    util.on('lay-on', {
 		      'iframe-video-1': function(){
@@ -111,7 +113,7 @@
 	<!-- 开始 -->
 	<body>
 		
-		<div class="page-container">
+		<div class="page-container layui-bg-gray">
 		<!-- 导航 -->
         <ul class="layui-nav layui-bg-gray">
         	<li class="layui-nav-item"><img src="img/logo.webp" height="50" /></li>
@@ -159,7 +161,7 @@
         	</div>
         </div>
         
-		<div class=""></div>
+		<div class="layui-container">
 		<!-- 导语 -->
         <div class="layui-bg-gray" style="padding: 16px;">
 			<div class="hezuo">
@@ -274,8 +276,8 @@
 							<h3><span class="layui-badge layui-bg-green">进行中</span> 四周年Q&A</h3>
 						</div>
                         <div class="layui-card-body">
-                            <strong>截止时间：</strong>2024/02/16 10:00:00（以 GMT+08:00 为准）<br>
-                            <strong>格式要求：</strong>点击下方按钮详见<br><br><br>
+                            <strong>截止时间：</strong>2024/02/16 10:00:00（以 GMT+08:00 为准）<br><br>
+                            <strong>格式要求：</strong>点击下方按钮详见<br><br>
                             <a href="https://yvex4o13ytq.feishu.cn/docx/LWVRdaUXVo5pUHxABJFcqFg6n1d">
                                 <button type="button" class="layui-btn layui-btn-primary layui-border-green">
                                     <i class="layui-icon layui-icon-release"></i> 点击参与
@@ -309,7 +311,7 @@
 							<h3><span class="layui-badge layui-bg-green">进行中</span> “厚斯卡”2023年度颁奖典礼</h3>
 						</div>
 				        <div class="layui-card-body">
-				            <strong>截止时间：</strong>2023/12/31 00:00:00（以 GMT+08:00 为准）<br><br><br><br>
+				            <strong>截止时间：</strong>2023/12/31 00:00:00（以 GMT+08:00 为准）<br><br>
 				            <a href="https://p0tcb4ytf2i.feishu.cn/share/base/form/shrcnvTegnedLaa9zvZs69vUqZz">
 				                <button type="button" class="layui-btn layui-btn-primary layui-border-green">
 				                    <i class="layui-icon layui-icon-release"></i> 点击参与
@@ -369,6 +371,7 @@
                         <div class="layui-colla-title"><h3>综合类</h3></div>
                         <div class="layui-colla-content">
 							<div class="layui-row layui-col-space16">
+								
 							    <div class="layui-col-md4">
 							        <div class="layui-card">
 							            <div class="layui-card-header">
@@ -379,6 +382,7 @@
 							            </div>
 							        </div>
 							    </div>
+								
 							    <div class="layui-col-md4">
 							        <div class="layui-card">
 							            <div class="layui-card-header">
@@ -389,6 +393,7 @@
 							            </div>
 							        </div>
 							    </div>
+								
 							    <div class="layui-col-md4">
 							        <div class="layui-card">
 							            <div class="layui-card-header">
@@ -399,6 +404,7 @@
 							            </div>
 							        </div>
 							    </div>
+								
 							</div>
                         </div>
                     </div>
@@ -407,6 +413,7 @@
                         <div class="layui-colla-title"><h3><span class="layui-badge">急需</span> 美术类</h3></div>
                         <div class="layui-colla-content layui-show">
 							<div class="layui-row layui-col-space16">
+								
 								<div class=" layui-col-md4">
 								    <div class="layui-card">
 								        <div class="layui-card-header">
@@ -419,6 +426,7 @@
 								        </div>
 								    </div>
 								</div>
+								
 								<div class="layui-col-md4">
 								    <div class="layui-card">
 								        <div class="layui-card-header">
@@ -431,6 +439,7 @@
 								        </div>
 								    </div>
 								</div>
+								
 								<div class="layui-col-md4">
 								    <div class="layui-card">
 								        <div class="layui-card-header">
@@ -443,6 +452,7 @@
 								        </div>
 								    </div>
 								</div>
+								
 								<div class="layui-col-md4">
 								    <div class="layui-card">
 								        <div class="layui-card-header">
@@ -455,6 +465,7 @@
 								        </div>
 								    </div>
 								</div>
+								
 							</div>
                         </div>
                     </div>
@@ -613,9 +624,10 @@
                 </div>
             </div>
         </div>
+		</div>
 
         <!-- 页脚 -->
-		<div class="layui-footer ws-footer"> 
+		<div class="layui-footer ws-footer layui-bg-white"> 
 			<ul class="ignore">
 				<li><a href="javascript:translate.changeLanguage('english');">English</a> | 
 				<a href="javascript:translate.changeLanguage('chinese_simplified');">简体中文</a> | 
@@ -623,7 +635,7 @@
 				<a href="javascript:translate.changeLanguage('japanese');">日本語</a></li>
 			</ul>
 		  <p>Copyright © 2023 <a>CC生日会工作组.</a> 版权所有. </p>
-		  <p>Designed by.<a href="https://space.bilibili.com/28826850">桐原知空</a></p>
+		  <p>Designed by.<a href="https://space.bilibili.com/28826850">桐原知空</a> | 当前版本：<span>Layui-v<span id="version"></span></span></p>
 		  <div class="footer-line">
 			  <hr class="layui-border-green">
 		  </div>
