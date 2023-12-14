@@ -3,18 +3,19 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>CC四周年生日会公式站</title>
-		<link crossorigin="" rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-		<meta name="renderer" content="webkit">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 		<!-- 让 IE8/9 支持媒体查询，从而兼容栅格 -->
 		<!--[if lt IE 9]>
 		  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
 		  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		<link crossorigin="" rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 		<script>(function(){self!==parent&&(location.href="about:blank")})();</script>
 		<link rel="stylesheet" href="css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/index.css" rel="stylesheet">
 		
 		<!-- 引入 swiper -->
 		<link rel="stylesheet" href="//cdn.staticfile.org/Swiper/11.0.5/swiper-bundle.min.css"/>
@@ -25,671 +26,1139 @@
 		
 		<!-- 引入 layui -->
 		<link href="layui/css/layui.css" rel="stylesheet">
-		<script src="layui/layui.js"></script>
+		<script src="layui/layui.js" type="text/javascript"></script>
 		<!-- 驱动 layui -->
-		<script>
-		layui.use(function(){
-		    var form = layui.form;
-		    var $ = layui.$;
-		    var layer = layui.layer;
+		<script type="text/javascript">
+		layui.use(function() {
 		    var util = layui.util;
-			// 输出版本号
-			lay('#version').html(layui.v);
+		    var laydate = layui.laydate;
+		    var layer = layui.layer;
+		    var $ = layui.$;
+		    // 输出版本号
+		    lay('#version').html(layui.v);
 		    // 事件
 		    util.on('lay-on', {
-		      'iframe-video-1': function(){
-		        layer.open({
-		          type: 2,
-		          title: false,
-		          area: ['80%', '80%'],
-		          shade: 0.8,
-		          closeBtn: 0,
-		          shadeClose: true,
-		          content: '//player.bilibili.com/player.html?aid=281465306&bvid=BV1ec411z75D&cid=1345564402&p=1' // video 地址
-		        });
-		        layer.msg('点击空白区域可关闭');
-		      },
-			  'iframe-video-2': function(){
-			    layer.open({
-			      type: 2,
-			      title: false,
-			      area: ['80%', '80%'],
-			      shade: 0.8,
-			      closeBtn: 0,
-			      shadeClose: true,
-			      content: '' // video 地址
-			    });
-			    layer.msg('点击空白区域可关闭');
-			  },
-			  'iframe-video-3': function(){
-			    layer.open({
-			      type: 2,
-			      title: false,
-			      area: ['80%', '80%'],
-			      shade: 0.8,
-			      closeBtn: 0,
-			      shadeClose: true,
-			      content: '' // video 地址
-			    });
-			    layer.msg('点击空白区域可关闭');
-			  },
-			   'page-qr': function(){
-			        layer.open({
-			          type: 1,
-			          area: ['350px', '290px'], // 宽高
-			          title: false, // 不显示标题栏
-			          closeBtn: 0,
-			          shadeClose: true, // 点击遮罩关闭层
-			          content: '<img class="qr-code" src="img/qr.webp">'
-			        });
-			    },
-				'iframe-sing1': function(){
-				      layer.open({
-				        type: 2,
-				        title: '《不安灵魂收容所》试音结果查询',
-				        shadeClose: true,
-				        area: ['100%', '100%'],
-				        content: ['//yvex4o13ytq.feishu.cn/share/base/query/shrcnmMpghY5yprszCkZcNYqHzh', 'yes']
-				    });
-				},
-				'iframe-sing': function(){
-				      layer.open({
-				        type: 2,
-				        title: '《不安灵魂收容所》合唱试音',
-				        shadeClose: true,
-				        area: ['100%', '100%'],
-				        content: ['//yvex4o13ytq.feishu.cn/share/base/form/shrcnsyZMY0MR9nrzpwRiubfNVh', 'yes']
-				    });
-				}
+		        'iframe-video-1': function() {
+		            layer.open({
+		                type: 2,
+		                title: false,
+		                area: ['80%', '80%'],
+		                shade: 0.8,
+		                closeBtn: 0,
+		                shadeClose: true,
+		                content: '//player.bilibili.com/player.html?aid=281465306&bvid=BV1ec411z75D&cid=1345564402&p=1' // video 地址
+		            });
+		            layer.msg('点击空白区域可关闭');
+		        },
+		        'iframe-video-2': function() {
+		            layer.open({
+		                type: 2,
+		                title: false,
+		                area: ['80%', '80%'],
+		                shade: 0.8,
+		                closeBtn: 0,
+		                shadeClose: true,
+		                content: '' // video 地址
+		            });
+		            layer.msg('点击空白区域可关闭');
+		        },
+		        'iframe-video-3': function() {
+		            layer.open({
+		                type: 2,
+		                title: false,
+		                area: ['80%', '80%'],
+		                shade: 0.8,
+		                closeBtn: 0,
+		                shadeClose: true,
+		                content: '' // video 地址
+		            });
+		            layer.msg('点击空白区域可关闭');
+		        },
+		        'page-qr': function() {
+		            layer.open({
+		                type: 1,
+		                area: ['350px', '290px'],
+		                // 宽高
+		                title: false,
+		                // 不显示标题栏
+		                closeBtn: 0,
+		                shadeClose: true,
+		                // 点击遮罩关闭层
+		                content: '<img class="qr-code" src="img/qr.webp">'
+		            });
+		        },
+		        'iframe-sing1': function() {
+		            layer.open({
+		                type: 2,
+		                title: '《不安灵魂收容所》试音结果查询',
+		                shadeClose: true,
+		                area: ['100%', '100%'],
+		                content: ['//yvex4o13ytq.feishu.cn/share/base/query/shrcnmMpghY5yprszCkZcNYqHzh', 'yes']
+		            });
+		        },
+		        'iframe-sing': function() {
+		            layer.open({
+		                type: 2,
+		                title: '《不安灵魂收容所》合唱试音',
+		                shadeClose: true,
+		                area: ['100%', '100%'],
+		                content: ['//yvex4o13ytq.feishu.cn/share/base/form/shrcnsyZMY0MR9nrzpwRiubfNVh', 'yes']
+		            });
+		        }
 		    })
-		  // 返回顶部固定条
-		  util.fixbar({
-		    bars: [{type: 'top', icon: 'layui-icon-top'}],
-		  });
 		});
 		</script>
 	</head>
 	
 	<!-- 开始 -->
 	<body>
-		
 		<div class="page-container layui-bg-gray">
-		<!-- 导航 -->
-        <ul class="layui-nav layui-bg-gray">
-        	<li class="layui-nav-item"><img src="img/logo.webp" height="50" /></li>
-        </ul>
-        
-        <!-- 轮播 -->
-        <div class="swiper">
-        	<!-- Additional required wrapper -->
-        	<div class="swiper-wrapper">
-        		<!-- Slides -->
-				<div class="swiper-slide">
-					<a href="https://p0tcb4ytf2i.feishu.cn/share/base/form/shrcnvTegnedLaa9zvZs69vUqZz">
-						<img src="img/banner/hoscar.webp" max-width="100%" />
-				    </a>
+			<!-- 导航 -->
+			<ul class="layui-nav layui-bg-gray">
+				<li class="layui-nav-item">
+					<img src="img/logo.webp" height="50">
+				</li>
+				<span class="layui-nav-bar" style="width: 0px; left: 0px; opacity: 0;">
+				</span>
+			</ul>
+			
+			<!-- 轮播 -->
+			<div class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
+				<!-- Additional required wrapper -->
+				<div class="swiper-wrapper" id="swiper-wrapper-79df10a2e74b94104f" aria-live="off"
+				style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); transition-delay: 0ms;">
+					<!-- Slides -->
+					<div class="swiper-slide swiper-slide-active" style="width: 1513px;" role="group"
+					aria-label="1 / 5">
+						<a href="https://p0tcb4ytf2i.feishu.cn/share/base/form/shrcnvTegnedLaa9zvZs69vUqZz">
+							<img src="img/banner/hoscar.webp" max-width="100%">
+						</a>
+					</div>
+					<div class="swiper-slide swiper-slide-next" style="width: 1513px;" role="group"
+					aria-label="2 / 5">
+						<a href="https://yvex4o13ytq.feishu.cn/share/base/form/shrcnsyZMY0MR9nrzpwRiubfNVh">
+							<img src="img/banner/2.webp" max-width="100%">
+						</a>
+					</div>
+					<div class="swiper-slide" style="width: 1513px;" role="group" aria-label="3 / 5">
+						<a href="https://yvex4o13ytq.feishu.cn/docx/LWVRdaUXVo5pUHxABJFcqFg6n1d">
+							<img src="img/banner/4.webp" max-width="100%">
+						</a>
+					</div>
+					<div class="swiper-slide" style="width: 1513px;" role="group" aria-label="4 / 5">
+						<a href="">
+							<img src="img/banner/1.webp" max-width="100%">
+						</a>
+					</div>
+					<div class="swiper-slide" role="group" aria-label="5 / 5" style="width: 1513px;">
+						<a href="">
+							<img src="img/banner/3.webp" max-width="100%">
+						</a>
+					</div>
 				</div>
-        		<div class="swiper-slide">
-					<a href="https://yvex4o13ytq.feishu.cn/share/base/form/shrcnsyZMY0MR9nrzpwRiubfNVh">
-						<img src="img/banner/2.webp" max-width="100%" />
-				    </a>
+				<div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"
+				aria-controls="swiper-wrapper-79df10a2e74b94104f" aria-disabled="false">
 				</div>
-				<div class="swiper-slide">
-					<a href="https://yvex4o13ytq.feishu.cn/docx/LWVRdaUXVo5pUHxABJFcqFg6n1d">
-        		        <img src="img/banner/4.webp" max-width="100%" />
-					</a>
+				<div class="swiper-button-prev swiper-button-disabled" tabindex="-1" role="button"
+				aria-label="Previous slide" aria-controls="swiper-wrapper-79df10a2e74b94104f"
+				aria-disabled="true">
 				</div>
-				<div class="swiper-slide">
-					<a href="">
-					    <img src="img/banner/1.webp" max-width="100%" />
-				    </a>
+				<div class="swiper-pagination swiper-pagination-progressbar swiper-pagination-horizontal">
+					<span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0.2) scaleY(1); transition-duration: 300ms;">
+					</span>
 				</div>
-				<div class="swiper-slide">
-					<a href="">
-				        <img src="img/banner/3.webp" max-width="100%" />
-					</a>
+				<span class="swiper-notification" aria-live="assertive" aria-atomic="true">
+				</span>
+			</div>
+			<div class="index-KeyVisual_Twitter">
+				<a class="twitter_link" href="https://space.bilibili.com/3546585059297450" target="_blank" rel="nofollow noopener"></a>
+			</div>
+			
+			<div class="layui-container">
+				<div class="index-KeyVisual_Bubble is-animated">
+				    <div class="bubble pink_01">
+				        <div class="inner" style="top: 0px;">
+				            <div class="image"></div>
+				        </div>
+				    </div>
+				    <div class="bubble pink_02">
+				        <div class="inner" style="top: 0px;">
+				            <div class="image"></div>
+				        </div>
+				    </div>
+				    <div class="bubble green_01">
+				        <div class="inner" style="top: 0px;">
+				            <div class="image"></div>
+				        </div>
+				    </div>
+				    <div class="bubble green_02">
+				        <div class="inner" style="top: 0px;">
+				            <div class="image"></div>
+				        </div>
+				    </div>
+				    <div class="bubble yellow_01">
+				        <div class="inner" style="top: 0px;">
+				            <div class="image"></div>
+				        </div>
+				    </div>
+				    <div class="bubble yellow_02">
+				        <div class="inner" style="top: 0px;">
+				            <div class="image"></div>
+				        </div>
+				    </div>
+				    <div class="bubble yellow_03">
+				        <div class="inner" style="top: 0px;">
+				            <div class="image"></div>
+				        </div>
+				    </div>
+				    <div class="bubble blue_01">
+				        <div class="inner" style="top: 0px;">
+				            <div class="image"></div>
+				        </div>
+				    </div>
+				    <div class="bubble blue_02">
+				        <div class="inner" style="top: 0px;">
+				            <div class="image"></div>
+				        </div>
+				    </div>
 				</div>
-        	</div>
-        	<div class="swiper-button-next"></div>
-        	<div class="swiper-button-prev"></div>
-        	<div class="swiper-pagination"></div>
-        	<div class="autoplay-progress">
-        		<svg viewBox="0 0 48 48">
-        		    <circle cx="24" cy="24" r="20"></circle>
-        		</svg>
-        		<span></span>
-        	</div>
-        </div>
-        
-		<div class="layui-container">
-		<!-- 导语 -->
-        <div class="layui-bg-gray" style="padding: 16px;">
-			<div class="hezuo">
-				<div class="content">
-					<div style="margin: 20px 0 20px 0">
-					    <h1 style="margin-top: 0">前言</h1>
-					    <p class="yin">PREFACE</p>
+				<!-- 导语 -->
+				<div class="layui-bg-gray" style="padding: 16px;">
+					<div class="hezuo">
+						<div class="content">
+							<div style="margin: 20px 0 20px 0">
+								<h1 style="margin-top: 0">
+									前言
+								</h1>
+								<p class="yin">
+									PREFACE
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="layui-row layui-col-space15">
+						<div class="layui-panel">
+							<div style="padding: 16px;">
+								<p style="text-indent:2em;">
+									不知不觉，ChiliChill马上就要迎来四周年啦!为了这个美好的日子，ChiliChill的粉丝们自发组织了四周年生日会，欢迎各位粉丝还有各业大佬们参加!本次生日会性质为无盈利/用爱发电，欢迎各位在本次生日会中表达你们对ChiliChill的喜爱和抽象!
+									<br>
+								</p>
+								<p style="text-indent:2em;">
+									本次四周年生日会为视频合集形式，计划于2024年3月11日 (《心碎烧酒》投稿四周年日) 进行公开直播，具体时间安排详见四周年生日会筹备组后续公告!
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 视频 -->
+				<div class="layui-bg-gray" style="padding: 16px;">
+					<div class="layui-row layui-col-space15">
+						<div class="hezuo">
+							<div class="content">
+								<div style="margin: 20px 0 20px 0">
+									<h1 style="margin-top: 0">
+										宣传视频
+									</h1>
+									<p class="yin">
+										VIDEO
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="layui-col-md4">
+							<div class="layui-card">
+								<div class="layui-card-body">
+									<button lay-on="iframe-video-1">
+										<img src="img/cover.webp" width="100%">
+									</button>
+									<br>
+									<br>
+									<p>
+										<i class="layui-icon layui-icon-video">
+										</i>
+										如果有一天举办了ChiliChill四周年生日会……
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="layui-col-md4">
+							<div class="layui-card">
+								<div class="layui-card-body">
+									<button lay-on="iframe-video-2">
+										<img src="img/novideo.webp" width="100%">
+									</button>
+									<br>
+									<br>
+									<p>
+										<i class="layui-icon layui-icon-video">
+										</i>
+										未解锁
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="layui-col-md4">
+							<div class="layui-card">
+								<div class="layui-card-body">
+									<button lay-on="iframe-video-3">
+										<img src="img/novideo.webp" width="100%">
+									</button>
+									<br>
+									<br>
+									<p>
+										<i class="layui-icon layui-icon-video">
+										</i>
+										未解锁
+									</p>
+								</div>
+							</div>
+						</div>
+						<br>
+						<center>
+							<a href="https://space.bilibili.com/3546585059297450">
+								<button type="button" class="layui-btn layui-btn-fluid">
+									<i class="layui-icon layui-icon-search">
+									</i>
+									查看更多
+								</button>
+							</a>
+						</center>
+					</div>
+					<div class="index-Section_Bubble_Wrapper is-animated">
+					    <div class="index-Section_Bubble is-animated">
+					        <div class="bubble pink">
+					            <div class="inner" style="top: -67.5919px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					        <div class="bubble green">
+					            <div class="inner" style="top: -36.049px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					        <div class="bubble yellow">
+					            <div class="inner" style="top: -67.5919px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					        <div class="bubble blue">
+					            <div class="inner" style="top: -54.0735px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+				</div>
+				
+				<!-- 活动 -->
+				<div class="layui-bg-gray" style="padding: 16px;">
+					<div class="layui-row layui-col-space15">
+						<div class="hezuo">
+							<div class="content">
+								<div style="margin: 20px 0 20px 0">
+									<h1 style="margin-top: 0">
+										相关活动
+									</h1>
+									<p class="yin">
+										ACTIVITY
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="layui-col-md4">
+							<div class="layui-card">
+								<div class="layui-card-header">
+									<h3>
+										<span class="layui-badge layui-bg-green">
+											进行中
+										</span>
+										四周年稿件征集
+									</h3>
+								</div>
+								<div class="layui-card-body">
+									<strong>
+										截止时间：
+									</strong>
+									【报名】2024/01/01 00:00:00（以 GMT+08:00 为准）
+									<br>
+									【投稿】2024/03/01 00:00:00（以 GMT+08:00 为准）
+									<br>
+									<strong>
+										格式要求：
+									</strong>
+									点击下方按钮详见
+									<br>
+									<br>
+									<a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&amp;k=S7QpVwWgDlEJAz8hpdEbMCYrQzSqwOYN&amp;authKey=VufjNuisinMKRzXOYavFFy2c5GwQtZ2foXebqFYIIwSlgm2Bgq49yqoHpxfnZsXT&amp;noverify=0&amp;group_code=907889343">
+										<button type="button" class="layui-btn layui-btn-primary layui-border-green">
+											<i class="layui-icon layui-icon-release">
+											</i>
+											点击参与
+										</button>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="layui-col-md4">
+							<div class="layui-card">
+								<div class="layui-card-header">
+									<h3>
+										<span class="layui-badge layui-bg-green">
+											进行中
+										</span>
+										四周年Q&amp;A
+									</h3>
+								</div>
+								<div class="layui-card-body">
+									<strong>
+										截止时间：
+									</strong>
+									2024/02/16 10:00:00（以 GMT+08:00 为准）
+									<br>
+									<br>
+									<strong>
+										格式要求：
+									</strong>
+									点击下方按钮详见
+									<br>
+									<br>
+									<a href="https://yvex4o13ytq.feishu.cn/docx/LWVRdaUXVo5pUHxABJFcqFg6n1d">
+										<button type="button" class="layui-btn layui-btn-primary layui-border-green">
+											<i class="layui-icon layui-icon-release">
+											</i>
+											点击参与
+										</button>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="layui-col-md4">
+							<div class="layui-card">
+								<div class="layui-card-header">
+									<h3>
+										<span class="layui-badge layui-bg-green">
+											进行中
+										</span>
+										《不安灵魂收容所》试音
+									</h3>
+								</div>
+								<div class="layui-card-body">
+									<strong>
+										截止时间：
+									</strong>
+									2023/12/08 00:00:00（以 GMT+08:00 为准）
+									<br>
+									<strong>
+										格式要求：
+									</strong>
+									一段未经任何后期处理的（人声）纯干声，曲目不限，音频规格要求 48000Hz 24bit 单声道，flac / wav / aiff 格式。
+									<br>
+									<br>
+									<button type="button" class="layui-btn layui-btn-primary layui-border-green"
+									lay-on="iframe-sing">
+										<i class="layui-icon layui-icon-release">
+										</i>
+										点击参与
+									</button>
+									<button type="button" class="layui-btn layui-btn-primary layui-border-green"
+									lay-on="iframe-sing1">
+										<i class="layui-icon layui-icon-search">
+										</i>
+										结果查询
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="layui-col-md4">
+							<div class="layui-card">
+								<div class="layui-card-header">
+									<h3>
+										<span class="layui-badge layui-bg-green">
+											进行中
+										</span>
+										“厚斯卡”2023年度颁奖典礼
+									</h3>
+								</div>
+								<div class="layui-card-body">
+									<strong>
+										截止时间：
+									</strong>
+									2023/12/31 00:00:00（以 GMT+08:00 为准）
+									<br>
+									<br>
+									<a href="https://p0tcb4ytf2i.feishu.cn/share/base/form/shrcnvTegnedLaa9zvZs69vUqZz">
+										<button type="button" class="layui-btn layui-btn-primary layui-border-green">
+											<i class="layui-icon layui-icon-release">
+											</i>
+											点击参与
+										</button>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="layui-col-md4">
+							<div class="layui-card">
+								<div class="layui-card-header">
+									<h3>
+										<span class="layui-badge layui-bg-green">
+											进行中
+										</span>
+										“大哥大姐向前冲”交友栏目
+									</h3>
+								</div>
+								<div class="layui-card-body">
+									<strong>
+										截止时间：
+									</strong>
+									2023/12/08 00:00:00（以 GMT+08:00 为准）
+									<br>
+									<strong>
+										格式要求：
+									</strong>
+									视频要求1080p，音频保证声音清晰，噪音较小、环境安静即可。
+									<br>
+									<br>
+									<a href="https://p0tcb4ytf2i.feishu.cn/share/base/form/shrcnYoWJZ2Ish4zE8hrEvFqcPH">
+										<button type="button" class="layui-btn layui-btn-primary layui-border-green">
+											<i class="layui-icon layui-icon-release">
+											</i>
+											点击参与
+										</button>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="layui-col-md4">
+							<div class="layui-card">
+								<div class="layui-card-header">
+									<h3>
+										<span class="layui-badge layui-bg-gray">
+											未开始
+										</span>
+										企划加载中......
+									</h3>
+								</div>
+								<div class="layui-card-body">
+									未获取到信息
+									<br>
+									<br>
+									<br>
+									<br>
+									<button type="button" class="layui-btn layui-btn-disabled layui-btn-primary layui-border-green">
+										<i class="layui-icon layui-icon-release">
+										</i>
+										点击参与
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="index-Section_Bubble_Wrapper is-animated">
+					    <div class="index-Section_Bubble is-animated">
+					        <div class="bubble pink">
+					            <div class="inner" style="top: -131.501px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					        <div class="bubble green">
+					            <div class="inner" style="top: -70.134px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					        <div class="bubble yellow">
+					            <div class="inner" style="top: -131.501px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					        <div class="bubble blue">
+					            <div class="inner" style="top: -105.201px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+				</div>
+				
+				<!-- 招募 -->
+				<div class="layui-bg-gray" style="padding: 16px;">
+					<div class="layui-row layui-col-space15">
+						<div class="hezuo">
+							<div class="content">
+								<div style="margin: 20px 0 20px 0">
+									<h1 style="margin-top: 0">
+										招募岗位
+									</h1>
+									<p class="yin">
+										RECRUIT
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="layui-collapse" lay-accordion="">
+							<div class="layui-colla-item">
+								<div class="layui-colla-title">
+									<h3>
+										综合类
+									</h3>
+									<i class="layui-icon layui-colla-icon">
+										
+									</i>
+								</div>
+								<div class="layui-colla-content">
+									<div class="layui-row layui-col-space16">
+										<div class="layui-col-md4">
+											<div class="layui-card">
+												<div class="layui-card-header">
+													<h3>
+														无
+													</h3>
+												</div>
+												<div class="layui-card-body">
+													暂无岗位需求
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md4">
+											<div class="layui-card">
+												<div class="layui-card-header">
+													<h3>
+														无
+													</h3>
+												</div>
+												<div class="layui-card-body">
+													暂无岗位需求
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md4">
+											<div class="layui-card">
+												<div class="layui-card-header">
+													<h3>
+														无
+													</h3>
+												</div>
+												<div class="layui-card-body">
+													暂无岗位需求
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="layui-colla-item">
+								<div class="layui-colla-title">
+									<h3>
+										<span class="layui-badge">
+											急需
+										</span>
+										美术类
+									</h3>
+									<i class="layui-icon layui-colla-icon">
+										
+									</i>
+								</div>
+								<div class="layui-colla-content layui-show">
+									<div class="layui-row layui-col-space16">
+										<div class=" layui-col-md4">
+											<div class="layui-card">
+												<div class="layui-card-header">
+													<h3>
+														美术/美工组长
+													</h3>
+												</div>
+												<div class="layui-card-body">
+													<strong>
+														招募人数：
+													</strong>
+													1人
+													<br>
+													<strong>
+														工作难度：
+													</strong>
+													<span class="layui-badge layui-bg-orange">
+														★★★★★
+													</span>
+													<br>
+													<strong>
+														职位要求：
+													</strong>
+													1.参与本日生日会稿件投票； 2.把握生日会整体美术风格，与其他美工协调开展美术工作； 3.根据总体策划，制作相关美术内容。
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md4">
+											<div class="layui-card">
+												<div class="layui-card-header">
+													<h3>
+														过场动画监督
+													</h3>
+												</div>
+												<div class="layui-card-body">
+													<strong>
+														招募人数：
+													</strong>
+													1人
+													<br>
+													<strong>
+														工作难度：
+													</strong>
+													<span class="layui-badge layui-bg-orange">
+														★★★★★
+													</span>
+													<br>
+													<strong>
+														职位要求：
+													</strong>
+													1.参与本日生日会稿件投票； 2.根据总体策划内容，制作过场动画。
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md4">
+											<div class="layui-card">
+												<div class="layui-card-header">
+													<h3>
+														美工
+													</h3>
+												</div>
+												<div class="layui-card-body">
+													<strong>
+														招募人数：
+													</strong>
+													2人
+													<br>
+													<strong>
+														工作难度：
+													</strong>
+													<span class="layui-badge layui-bg-orange">
+														★★★★
+													</span>
+													<br>
+													<strong>
+														职位要求：
+													</strong>
+													1.参与本日生日会稿件投票； 2.协助美术/美工组长，完成美工内容制作（排版设计）。
+												</div>
+											</div>
+										</div>
+										<div class="layui-col-md4">
+											<div class="layui-card">
+												<div class="layui-card-header">
+													<h3>
+														过场动画美术
+													</h3>
+												</div>
+												<div class="layui-card-body">
+													<strong>
+														招募人数：
+													</strong>
+													5人
+													<br>
+													<strong>
+														工作难度：
+													</strong>
+													<span class="layui-badge layui-bg-orange">
+														★★★★
+													</span>
+													<br>
+													<strong>
+														职位要求：
+													</strong>
+													1.参与本日生日会稿件投票； 2.协助过场动画监督，完成制作过场动画。
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="index-Section_Bubble_Wrapper is-animated">
+					    <div class="index-Section_Bubble is-animated">
+					        <div class="bubble pink">
+					            <div class="inner" style="top: -67.5919px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					        <div class="bubble green">
+					            <div class="inner" style="top: -36.049px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					        <div class="bubble yellow">
+					            <div class="inner" style="top: -67.5919px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					        <div class="bubble blue">
+					            <div class="inner" style="top: -54.0735px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+				</div>
+				
+				<!-- 关于 -->
+				<div class="layui-bg-gray" style="padding: 16px;">
+					<div class="layui-row layui-col-space15">
+						<div class="hezuo">
+							<div class="content">
+								<div style="margin: 20px 0 20px 0">
+									<h1 style="margin-top: 0">
+										关于我们
+									</h1>
+									<p class="yin">
+										ABOUT
+									</p>
+								</div>
+							</div>
+						</div>
+						<blockquote class="layui-bg-gray layui-elem-quote">
+							<p style="text-indent:2em;">
+								由于QQ无法直接访问飞书链接，导致工作组设立在飞书的相关问卷和文档都无法直接访问，直接导致了数据收集工作无法推进。于是工作组就临时搭建了这个破网站，并存放于第三方托管。
+								<br>
+							</p>
+							<p style="text-indent:2em;">
+								这里集成了关于生日会的绝大部分信息，并且会强制让你跳转至浏览器。由于时间比较仓促，所以界面有点简陋各位见谅，虽然但是有bug也不会修滴_8(:з」∠)_
+							</p>
+						</blockquote>
+					</div>
+					<div class="demo">
+						<div class="layui-row layui-col-space16">
+							<div class="layui-col-md3">
+								<div class="our-team">
+									<div class="pic">
+										<img src="img/avatar/72a740844c9b58cad481e0458c08d1bd13032329.webp">
+									</div>
+									<div class="team-content">
+										<h3 class="title">
+											ChiliChill同人粉丝站
+										</h3>
+										<span class="post">
+											官方账号
+										</span>
+										<br>
+										<a href="https://space.bilibili.com/3546585059297450">
+											<button type="button" class="layui-btn layui-btn-radius">
+												哔哩哔哩主页
+											</button>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-md3">
+								<div class="our-team">
+									<div class="pic">
+										<img src="img/avatar/76f10324fda74ed6ed7f7001ed65d87796e9216e.webp">
+									</div>
+									<div class="team-content">
+										<h3 class="title">
+											海味增
+										</h3>
+										<span class="post">
+											总策划&amp;总导演&amp;总剪辑
+										</span>
+										<br>
+										<a href="https://space.bilibili.com/22819697">
+											<button type="button" class="layui-btn layui-btn-radius">
+												哔哩哔哩主页
+											</button>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-md3">
+								<div class="our-team">
+									<div class="pic">
+										<img src="img/avatar/363a97ffd129a1476fbb38b86c85d31692734d5d.webp">
+									</div>
+									<div class="team-content">
+										<h3 class="title">
+											知空
+										</h3>
+										<span class="post">
+											策划&amp;设计&amp;开发
+										</span>
+										<br>
+										<a href="https://space.bilibili.com/28826850">
+											<button type="button" class="layui-btn layui-btn-radius">
+												哔哩哔哩主页
+											</button>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-md3">
+								<div class="our-team">
+									<div class="pic">
+										<img src="img/avatar/ae681dcacbac900257c44e50ebfa8a9582d0a5aa.webp">
+									</div>
+									<div class="team-content">
+										<h3 class="title">
+											Preach桃
+										</h3>
+										<span class="post">
+											美术总监&amp;动画监督
+										</span>
+										<br>
+										<a href="https://space.bilibili.com/383823725">
+											<button type="button" class="layui-btn layui-btn-radius">
+												哔哩哔哩主页
+											</button>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-md3">
+								<div class="our-team">
+									<div class="pic">
+										<img src="img/avatar/5dce9a2b816c66d63d53207719aceb952f6f3260.webp">
+									</div>
+									<div class="team-content">
+										<h3 class="title">
+											乌啾uchuu
+										</h3>
+										<span class="post">
+											主视觉美术
+										</span>
+										<br>
+										<a href="https://space.bilibili.com/108173888">
+											<button type="button" class="layui-btn layui-btn-radius">
+												哔哩哔哩主页
+											</button>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-md3">
+								<div class="our-team">
+									<div class="pic">
+										<img src="img/avatar/9b3dbcba7acd29c520208539e29e913ef6db7242.webp">
+									</div>
+									<div class="team-content">
+										<h3 class="title">
+											Dandelion
+										</h3>
+										<span class="post">
+											剪辑
+										</span>
+										<br>
+										<a href="https://space.bilibili.com/27498536">
+											<button type="button" class="layui-btn layui-btn-radius">
+												哔哩哔哩主页
+											</button>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-md3">
+								<div class="our-team">
+									<div class="pic">
+										<img src="img/avatar/398ad3ccabe9623ba0a5e407b33028f82a4befbe.webp">
+									</div>
+									<div class="team-content">
+										<h3 class="title">
+											AgentSam
+										</h3>
+										<span class="post">
+											混音
+										</span>
+										<br>
+										<a href="https://space.bilibili.com/57386991">
+											<button type="button" class="layui-btn layui-btn-radius">
+												哔哩哔哩主页
+											</button>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-md3">
+								<div class="our-team">
+									<div class="pic">
+										<img src="img/avatar/0ac1aecf94b9b600036241f4e12cb6cb5f251202.webp">
+									</div>
+									<div class="team-content">
+										<h3 class="title">
+											涯冷
+										</h3>
+										<span class="post">
+											策划&amp;运营
+										</span>
+										<br>
+										<a href="https://space.bilibili.com/36894547">
+											<button type="button" class="layui-btn layui-btn-radius">
+												哔哩哔哩主页
+											</button>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="index-Section_Bubble_Wrapper is-animated">
+					    <div class="index-Section_Bubble is-animated">
+					        <div class="bubble pink">
+					            <div class="inner" style="top: -131.501px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					        <div class="bubble green">
+					            <div class="inner" style="top: -70.134px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					        <div class="bubble yellow">
+					            <div class="inner" style="top: -131.501px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					        <div class="bubble blue">
+					            <div class="inner" style="top: -105.201px;">
+					                <div class="image"></div>
+					            </div>
+					        </div>
+					    </div>
 					</div>
 				</div>
 			</div>
-        	<div class="layui-row layui-col-space15">
-				<blockquote class="layui-bg-gray layui-elem-quote">
-                    <p style="text-indent:2em;">
-						不知不觉，ChiliChill马上就要迎来四周年啦!为了这个美好的日子，ChiliChill的粉丝们自发组织了四周年生日会，欢迎各位粉丝还有各业大佬们参加!本次生日会性质为无盈利/用爱发电，欢迎各位在本次生日会中表达你们对ChiliChill的喜爱和抽象!<br />
-					</p>
-        		    <p style="text-indent:2em;">
-						本次四周年生日会为视频合集形式，计划于2024年3月11日 (《心碎烧酒》投稿四周年日) 进行公开直播，具体时间安排详见四周年生日会筹备组后续公告!
-        		    </p>
-				</blockquote>
-        	</div>
-        </div>
-        
-		<!-- 视频 -->
-        <div class="layui-bg-gray" style="padding: 16px;">
-        	<div class="layui-row layui-col-space15">
-        		<div class="hezuo">
-        			<div class="content">
-        				<div style="margin: 20px 0 20px 0">
-        				    <h1 style="margin-top: 0">宣传视频</h1>
-        				    <p class="yin">VIDEO</p>
-        				</div>
-        			</div>
-        		</div>
-        		<div class="layui-col-md4">
-        		    <div class="layui-card">
-        		        <div class="layui-card-body">
-        		            <button lay-on="iframe-video-1"><img src="img/cover.webp" width="100%" /></button>
-							<br /><br />
-							<p>
-								<i class="layui-icon layui-icon-video"></i> 
-								如果有一天举办了ChiliChill四周年生日会……
-							</p>
-        		        </div>
-        		    </div>
-        		</div>
-        		<div class="layui-col-md4">
-        		    <div class="layui-card">
-        		        <div class="layui-card-body">
-        		            <button lay-on="iframe-video-2"><img src="img/novideo.webp" width="100%" /></button>
-        		            <br /><br />
-        		            <p>
-						        <i class="layui-icon layui-icon-video"></i> 
-						        未解锁
-					        </p>
+			
+			<!-- PC关注 -->
+			<div id="follow">
+			<div class="index-Contents">
+				<div class="index-BilibiliLabel">
+					<a class="index-BilibiliLabel_Link fixed" href="https://space.bilibili.com/3546585059297450" target="_blank" rel="nofollow noopener">
+						<div class="label_icon">
 						</div>
-					</div>
-        		</div>
-        		<div class="layui-col-md4">
-        		    <div class="layui-card">
-        		        <div class="layui-card-body">
-        		            <button lay-on="iframe-video-3"><img src="img/novideo.webp" width="100%" /></button>
-        		            <br /><br />
-        		            <p>
-        				        <i class="layui-icon layui-icon-video"></i> 
-        				        未解锁
-        			        </p>
-        				</div>
-        			</div>
-        		</div>
-				<br />
-				<center>
-					<a href="https://space.bilibili.com/3546585059297450">
-					    <button type="button" class="layui-btn layui-btn-fluid"><i class="layui-icon layui-icon-search"></i>查看更多</button>
-			    	</a>
-				</center>
-        	</div>
-        </div>
-        
-		<!-- 活动 -->
-        <div class="layui-bg-gray" style="padding: 16px;">
-            <div class="layui-row layui-col-space15">
-				<div class="hezuo">
-					<div class="content">
-						<div style="margin: 20px 0 20px 0">
-						    <h1 style="margin-top: 0">相关活动</h1>
-						    <p class="yin">ACTIVITY</p>
-						</div>
-					</div>
+						<p class="label_text">
+							Official Bilibili
+						</p>
+					</a>
 				</div>
-				
-                <div class="layui-col-md4">
-                    <div class="layui-card">
-                        <div class="layui-card-header">
-							<h3><span class="layui-badge layui-bg-green">进行中</span> 四周年稿件征集</h3>
-						</div>
-                        <div class="layui-card-body">
-                            <strong>截止时间：</strong>【报名】2024/01/01 00:00:00（以 GMT+08:00 为准）<br>
-                            【投稿】2024/03/01 00:00:00（以 GMT+08:00 为准）<br>
-                            <strong>格式要求：</strong>点击下方按钮详见<br><br>
-                            <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=S7QpVwWgDlEJAz8hpdEbMCYrQzSqwOYN&authKey=VufjNuisinMKRzXOYavFFy2c5GwQtZ2foXebqFYIIwSlgm2Bgq49yqoHpxfnZsXT&noverify=0&group_code=907889343">
-                                <button type="button" class="layui-btn layui-btn-primary layui-border-green">
-                                    <i class="layui-icon layui-icon-release"></i> 点击参与
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-				
-                <div class="layui-col-md4">
-                    <div class="layui-card">
-                        <div class="layui-card-header">
-							<h3><span class="layui-badge layui-bg-green">进行中</span> 四周年Q&A</h3>
-						</div>
-                        <div class="layui-card-body">
-                            <strong>截止时间：</strong>2024/02/16 10:00:00（以 GMT+08:00 为准）<br><br>
-                            <strong>格式要求：</strong>点击下方按钮详见<br><br>
-                            <a href="https://yvex4o13ytq.feishu.cn/docx/LWVRdaUXVo5pUHxABJFcqFg6n1d">
-                                <button type="button" class="layui-btn layui-btn-primary layui-border-green">
-                                    <i class="layui-icon layui-icon-release"></i> 点击参与
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-				
-                <div class="layui-col-md4">
-                    <div class="layui-card">
-                        <div class="layui-card-header">
-							<h3><span class="layui-badge layui-bg-green">进行中</span> 《不安灵魂收容所》试音</h3>
-						</div>
-                        <div class="layui-card-body">
-                            <strong>截止时间：</strong>2023/12/08 00:00:00（以 GMT+08:00 为准）<br>
-                            <strong>格式要求：</strong>一段未经任何后期处理的（人声）纯干声，曲目不限，音频规格要求 48000Hz 24bit 单声道，flac / wav / aiff 格式。<br><br>
-                            <button type="button" class="layui-btn layui-btn-primary layui-border-green" lay-on="iframe-sing">
-                                <i class="layui-icon layui-icon-release"></i> 点击参与
-                            </button>
-							<button type="button" class="layui-btn layui-btn-primary layui-border-green" lay-on="iframe-sing1">
-							    <i class="layui-icon layui-icon-search"></i> 结果查询
+			</div>
+			</div>
+			<script>
+			    $(window).scroll(function(){
+			        if($(window).scrollTop()>500){
+			            $('#follow').fadeIn(500);
+			        }
+			        else{
+						$('#follow').fadeOut(400);
+					}
+			    })
+			</script>
+			
+			<!-- 页脚 -->
+			<div class="layui-footer ws-footer layui-bg-white">
+				<ul class="ignore">
+					<li>
+						<a href="javascript:translate.changeLanguage('english');">
+							English
+						</a>
+						|
+						<a href="javascript:translate.changeLanguage('chinese_simplified');">
+							简体中文
+						</a>
+						|
+						<a href="javascript:translate.changeLanguage('chinese_traditional');">
+							繁體中文
+						</a>
+						|
+						<a href="javascript:translate.changeLanguage('japanese');">
+							日本語
+						</a>
+					</li>
+				</ul>
+				<p>
+					Copyright © 2023
+					<a>
+						CC生日会工作组.
+					</a>
+					版权所有.
+				</p>
+				<p>
+					Designed by.
+					<a href="https://space.bilibili.com/28826850">
+						桐原知空
+					</a>
+					| 当前版本：
+					<span>
+						Layui-v
+						<span id="version">
+							2.9.1
+						</span>
+					</span>
+				</p>
+				<div class="footer-line">
+					<hr class="layui-border-green">
+				</div>
+				<p id="LAY-footer-info">
+					<a>
+						关于我们
+					</a>
+					|
+					<a>
+						加入我们
+					</a>
+					|
+					<a lay-on="page-qr">
+						资助我们
+					</a>
+					<br>
+					<a href="https://www.chilichill.fans/">
+						CFP粉丝站(建设中)
+					</a>
+					|
+					<a href="https://www.chilichill-music.com/">
+						ChiliChill官网
+					</a>
+				</p>
+				<p>
+					<span>
+						<a>
+							<button class="btn-weibo">
 							</button>
-                        </div>
-                    </div>
-                </div>
-				
-				<div class="layui-col-md4">
-				    <div class="layui-card">
-				        <div class="layui-card-header">		
-							<h3><span class="layui-badge layui-bg-green">进行中</span> “厚斯卡”2023年度颁奖典礼</h3>
-						</div>
-				        <div class="layui-card-body">
-				            <strong>截止时间：</strong>2023/12/31 00:00:00（以 GMT+08:00 为准）<br><br>
-				            <a href="https://p0tcb4ytf2i.feishu.cn/share/base/form/shrcnvTegnedLaa9zvZs69vUqZz">
-				                <button type="button" class="layui-btn layui-btn-primary layui-border-green">
-				                    <i class="layui-icon layui-icon-release"></i> 点击参与
-				                </button>
-				            </a>
-				        </div>
-				    </div>
-				</div>
-				
-				<div class="layui-col-md4">
-				    <div class="layui-card">
-				        <div class="layui-card-header">		
-							<h3><span class="layui-badge layui-bg-green">进行中</span> “大哥大姐向前冲”交友栏目</h3>
-						</div>
-				        <div class="layui-card-body">
-				            <strong>截止时间：</strong>2023/12/08 00:00:00（以 GMT+08:00 为准）<br>
-				            <strong>格式要求：</strong>视频要求1080p，音频保证声音清晰，噪音较小、环境安静即可。<br><br>
-				            <a href="https://p0tcb4ytf2i.feishu.cn/share/base/form/shrcnYoWJZ2Ish4zE8hrEvFqcPH">
-				                <button type="button" class="layui-btn layui-btn-primary layui-border-green">
-				                    <i class="layui-icon layui-icon-release"></i> 点击参与
-				                </button>
-				            </a>
-				        </div>
-				    </div>
-				</div>
-				
-                <div class="layui-col-md4">
-                    <div class="layui-card">
-                        <div class="layui-card-header">		
-							<h3><span class="layui-badge layui-bg-gray">未开始</span> 企划加载中......</h3>
-						</div>
-                        <div class="layui-card-body">
-                            未获取到信息<br><br><br><br>
-                            <button type="button" class="layui-btn layui-btn-disabled layui-btn-primary layui-border-green">
-                                <i class="layui-icon layui-icon-release"></i> 点击参与
-                            </button>
-                        </div>
-                    </div>
-                </div>
-				
-            </div>
-        </div>
-		
-		<!-- 招募 -->
-        <div class="layui-bg-gray" style="padding: 16px;">
-            <div class="layui-row layui-col-space15">
-				<div class="hezuo">
-					<div class="content">
-						<div style="margin: 20px 0 20px 0">
-						    <h1 style="margin-top: 0">招募岗位</h1>
-						    <p class="yin">RECRUIT</p>
-						</div>
-					</div>
-				</div>
-                <div class="layui-collapse" lay-accordion>
-                    <div class="layui-colla-item">
-                        <div class="layui-colla-title"><h3>综合类</h3></div>
-                        <div class="layui-colla-content">
-							<div class="layui-row layui-col-space16">
-								
-							    <div class="layui-col-md4">
-							        <div class="layui-card">
-							            <div class="layui-card-header">
-							                <h3>无</h3>
-							            </div>
-							            <div class="layui-card-body">
-							                暂无岗位需求
-							            </div>
-							        </div>
-							    </div>
-								
-							    <div class="layui-col-md4">
-							        <div class="layui-card">
-							            <div class="layui-card-header">
-							                <h3>无</h3>
-							            </div>
-							            <div class="layui-card-body">
-							                暂无岗位需求
-							            </div>
-							        </div>
-							    </div>
-								
-							    <div class="layui-col-md4">
-							        <div class="layui-card">
-							            <div class="layui-card-header">
-							                <h3>无</h3>
-							            </div>
-							            <div class="layui-card-body">
-							                暂无岗位需求
-							            </div>
-							        </div>
-							    </div>
-								
-							</div>
-                        </div>
-                    </div>
-					
-                    <div class="layui-colla-item" >
-                        <div class="layui-colla-title"><h3><span class="layui-badge">急需</span> 美术类</h3></div>
-                        <div class="layui-colla-content layui-show">
-							<div class="layui-row layui-col-space16">
-								
-								<div class=" layui-col-md4">
-								    <div class="layui-card">
-								        <div class="layui-card-header">
-								            <h3>美术/美工组长</h3>
-								        </div>
-								        <div class="layui-card-body">
-								            <strong>招募人数：</strong>1人<br>
-								            <strong>工作难度：</strong><span class="layui-badge layui-bg-orange">★★★★★</span><br>
-								            <strong>职位要求：</strong>1.参与本日生日会稿件投票； 2.把握生日会整体美术风格，与其他美工协调开展美术工作； 3.根据总体策划，制作相关美术内容。
-								        </div>
-								    </div>
-								</div>
-								
-								<div class="layui-col-md4">
-								    <div class="layui-card">
-								        <div class="layui-card-header">
-								            <h3>过场动画监督</h3>
-								        </div>
-								        <div class="layui-card-body">
-								            <strong>招募人数：</strong>1人<br>
-								            <strong>工作难度：</strong><span class="layui-badge layui-bg-orange">★★★★★</span><br>
-								            <strong>职位要求：</strong>1.参与本日生日会稿件投票； 2.根据总体策划内容，制作过场动画。
-								        </div>
-								    </div>
-								</div>
-								
-								<div class="layui-col-md4">
-								    <div class="layui-card">
-								        <div class="layui-card-header">
-								            <h3>美工</h3>
-								        </div>
-								        <div class="layui-card-body">
-								            <strong>招募人数：</strong>2人<br>
-								            <strong>工作难度：</strong><span class="layui-badge layui-bg-orange">★★★★</span><br>
-								            <strong>职位要求：</strong>1.参与本日生日会稿件投票； 2.协助美术/美工组长，完成美工内容制作（排版设计）。
-								        </div>
-								    </div>
-								</div>
-								
-								<div class="layui-col-md4">
-								    <div class="layui-card">
-								        <div class="layui-card-header">
-								            <h3>过场动画美术</h3>
-								        </div>
-								        <div class="layui-card-body">
-								            <strong>招募人数：</strong>5人<br>
-								            <strong>工作难度：</strong><span class="layui-badge layui-bg-orange">★★★★</span><br>
-								            <strong>职位要求：</strong>1.参与本日生日会稿件投票； 2.协助过场动画监督，完成制作过场动画。
-								        </div>
-								    </div>
-								</div>
-								
-							</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-		
-		<!-- 关于 -->
-        <div class="layui-bg-gray" style="padding: 16px;">
-            <div class="layui-row layui-col-space15">
-                <div class="hezuo">
-                    <div class="content">
-                        <div style="margin: 20px 0 20px 0">
-                            <h1 style="margin-top: 0">关于我们</h1>
-                            <p class="yin">ABOUT</p>
-                        </div>
-                    </div>
-                </div>
-                <blockquote class="layui-bg-gray layui-elem-quote">
-                    <p style="text-indent:2em;">由于QQ无法直接访问飞书链接，导致工作组设立在飞书的相关问卷和文档都无法直接访问，直接导致了数据收集工作无法推进。于是工作组就临时搭建了这个破网站，并存放于第三方托管。
-                        <br />
-                    </p>
-                    <p style="text-indent:2em;">这里集成了关于生日会的绝大部分信息，并且会强制让你跳转至浏览器。由于时间比较仓促，所以界面有点简陋各位见谅，虽然但是有bug也不会修滴_8(:з」∠)_</p>
-                </blockquote>
-            </div>
-            <div class="demo">
-                <div class="layui-row layui-col-space16">
-					<div class="layui-col-md3">
-					    <div class="our-team">
-					        <div class="pic">
-					            <img src="img/avatar/72a740844c9b58cad481e0458c08d1bd13032329.webp">
-					        </div>
-					        <div class="team-content">
-					            <h3 class="title">ChiliChill同人粉丝站</h3>
-					            <Span class="post">官方账号</Span>
-					            <br />
-					            <a href="https://space.bilibili.com/3546585059297450">
-					                <button type="button" class="layui-btn layui-btn-radius">哔哩哔哩主页</button>
-					            </a>
-					        </div>
-					    </div>
-					</div>
-					
-                    <div class="layui-col-md3">
-                        <div class="our-team">
-                            <div class="pic">
-                                <img src="img/avatar/76f10324fda74ed6ed7f7001ed65d87796e9216e.webp">
-                            </div>
-                            <div class="team-content">
-                                <h3 class="title">海味增</h3>
-                                <Span class="post">总策划&总导演&总剪辑</Span>
-                                <br />
-                                <a href="https://space.bilibili.com/22819697">
-                                    <button type="button" class="layui-btn layui-btn-radius">哔哩哔哩主页</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <div class="layui-col-md3">
-                        <div class="our-team">
-                            <div class="pic">
-                                <img src="img/avatar/363a97ffd129a1476fbb38b86c85d31692734d5d.webp">
-                            </div>
-                            <div class="team-content">
-                                <h3 class="title">知空</h3>
-                                <Span class="post">策划&设计&开发</Span>
-                                <br />
-                                <a href="https://space.bilibili.com/28826850">
-                                    <button type="button" class="layui-btn layui-btn-radius">哔哩哔哩主页</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <div class="layui-col-md3">
-                        <div class="our-team">
-                            <div class="pic">
-                                <img src="img/avatar/ae681dcacbac900257c44e50ebfa8a9582d0a5aa.webp">
-                            </div>
-                            <div class="team-content">
-                                <h3 class="title">Preach桃</h3>
-                                <Span class="post">美术总监&动画监督</Span>
-                                <br />
-                                <a href="https://space.bilibili.com/383823725">
-                                    <button type="button" class="layui-btn layui-btn-radius">哔哩哔哩主页</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-					
-					<div class="layui-col-md3">
-					    <div class="our-team">
-					        <div class="pic">
-					            <img src="img/avatar/5dce9a2b816c66d63d53207719aceb952f6f3260.webp">
-					        </div>
-					        <div class="team-content">
-					            <h3 class="title">乌啾uchuu</h3>
-					            <Span class="post">主视觉美术</Span>
-					            <br />
-					            <a href="https://space.bilibili.com/108173888">
-					                <button type="button" class="layui-btn layui-btn-radius">哔哩哔哩主页</button>
-					            </a>
-					        </div>
-					    </div>
-					</div>
-        
-                    <div class="layui-col-md3">
-                        <div class="our-team">
-                            <div class="pic">
-                                <img src="img/avatar/9b3dbcba7acd29c520208539e29e913ef6db7242.webp">
-                            </div>
-                            <div class="team-content">
-                                <h3 class="title">Dandelion</h3>
-                                <Span class="post">剪辑</Span>
-                                <br />
-                                <a href="https://space.bilibili.com/27498536">
-                                    <button type="button" class="layui-btn layui-btn-radius">哔哩哔哩主页</button>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-					
-					<div class="layui-col-md3">
-					    <div class="our-team">
-					        <div class="pic">
-					            <img src="img/avatar/398ad3ccabe9623ba0a5e407b33028f82a4befbe.webp">
-					        </div>
-					        <div class="team-content">
-					            <h3 class="title">AgentSam</h3>
-					            <Span class="post">混音</Span>
-					            <br />
-					            <a href="https://space.bilibili.com/57386991">
-					                <button type="button" class="layui-btn layui-btn-radius">哔哩哔哩主页</button>
-					            </a>
-					        </div>
-					    </div>
-					</div>
-					
-					<div class="layui-col-md3">
-					    <div class="our-team">
-					        <div class="pic">
-					            <img src="img/avatar/0ac1aecf94b9b600036241f4e12cb6cb5f251202.webp">
-					        </div>
-					        <div class="team-content">
-					            <h3 class="title">涯冷</h3>
-					            <Span class="post">策划&运营</Span>
-					            <br />
-					            <a href="https://space.bilibili.com/36894547">
-					                <button type="button" class="layui-btn layui-btn-radius">哔哩哔哩主页</button>
-					            </a>
-					        </div>
-					    </div>
-					</div>
-					
-                </div>
-            </div>
-        </div>
+						</a>
+						<a>
+							<button class="btn-twi">
+							</button>
+						</a>
+						<a href="https://space.bilibili.com/3546585059297450">
+							<button class="btn-bili">
+							</button>
+						</a>
+						<a>
+							<button class="btn-qqmusic">
+							</button>
+						</a>
+						<a>
+							<button class="btn-wyy">
+							</button>
+						</a>
+					</span>
+				</p>
+			</div>
 		</div>
-
-        <!-- 页脚 -->
-		<div class="layui-footer ws-footer layui-bg-white"> 
-			<ul class="ignore">
-				<li><a href="javascript:translate.changeLanguage('english');">English</a> | 
-				<a href="javascript:translate.changeLanguage('chinese_simplified');">简体中文</a> | 
-				<a href="javascript:translate.changeLanguage('chinese_traditional');">繁體中文</a> | 
-				<a href="javascript:translate.changeLanguage('japanese');">日本語</a></li>
-			</ul>
-		  <p>Copyright © 2023 <a>CC生日会工作组.</a> 版权所有. </p>
-		  <p>Designed by.<a href="https://space.bilibili.com/28826850">桐原知空</a> | 当前版本：<span>Layui-v<span id="version"></span></span></p>
-		  <div class="footer-line">
-			  <hr class="layui-border-green">
-		  </div>
-		  <p id="LAY-footer-info">
-		      <a>关于我们</a> | 
-		      <a>加入我们</a> | 
-		      <a lay-on="page-qr">资助我们</a>
-			  <br />
-		      <a href="https://www.chilichill.fans/">CFP粉丝站(建设中) </a> | 
-		      <a href="https://www.chilichill-music.com/">ChiliChill官网</a>
-		  </p>
-		  <p>
-		    <span>
-				<a>
-				    <button class="btn-weibo"></button>
-				</a>
-				<a>
-				    <button class="btn-twi"></button>
-				</a>
-		        <a href="https://space.bilibili.com/3546585059297450">
-		            <button class="btn-bili"></button>
-		        </a>
-				<a>
-				    <button class="btn-qqmusic"></button>
-				</a>
-		        <a>
-		            <button class="btn-wyy"></button>
-		        </a>
-		    </span>
-		  </p>
-		</div>
-		</div>
-
-		
+	
 		<!-- 多语种翻译 -->
-        <script>
-        	layui.extend({
-        		translate: '{/}https://mail_osc.gitee.io/translate_layui/layui_exts/translate/translate' // {/}的意思即代表采用自有路径，即不跟随 base 路径
-        	})
-        	//使用拓展模块
-        	layui.use(['translate'], function(){
-        		var translate = layui.translate;
-        		translate.selectLanguageTag.show = false; //不出现的select的选择语言
-        		//当页面加载完后执行翻译操作
-        		window.onload = function () {
-        			translate.execute();
-        		};  
-        	});
-        </script>
-		
-	    <!-- 防红跳转 -->
-	    <script>
+	    <script type="text/javascript">
+	        layui.extend({
+	        	translate: '{/}https://mail_osc.gitee.io/translate_layui/layui_exts/translate/translate' // {/}的意思即代表采用自有路径，即不跟随 base 路径
+	        })
+	        //使用拓展模块
+	        layui.use(['translate'], function(){
+	        	var translate = layui.translate;
+	        	translate.selectLanguageTag.show = false; //不出现的select的选择语言
+	        	//当页面加载完后执行翻译操作
+	        	window.onload = function () {
+	        		translate.execute();
+	        	};  
+	        });
+	    </script>
+			
+		<!-- 防红跳转 -->
+		<script type="text/javascript">
 			(function() {
-			    const isQQ = () => {
+				const isQQ = () => {
 			        const userAgent = navigator.userAgent.toLowerCase()
 			        return /qq\//.test(userAgent)
 			    }
@@ -698,44 +1167,43 @@
 			        const userAgent = navigator.userAgent.toLowerCase()
 			        return /micromessenger/.test(userAgent)
 			    }
-			
+				
 			    const $body = document.body
-			
+				
 			    if (isQQ() || isWeChat()) {
 			        $body.style.padding = 0
 			        $body.style.margin = 0
 			        $body.innerHTML = `
-				                <div style="width: 100%; height: 100vh;">
-				                    <img src="./img/pic.webp" alt="picture" style="width: 100%;">
-				                </div>
-				            `
-			        document.querySelector('title').textContent = '请务必使用浏览器打开'
-			    }
+		                <div style="width: 100%; height: 100vh;">
+		                    <img src="./img/pic.webp" alt="picture" style="width: 100%;">
+					    </div>
+					    `
+				    document.querySelector('title').textContent = '请务必使用浏览器打开'
+				}
 			})()
-	    </script>
+		</script>
 		<!-- 轮播参数 -->
-		<script>
+		<script type="text/javascript">
 			const progressCircle = document.querySelector(".autoplay-progress svg");
 			const progressContent = document.querySelector(".autoplay-progress span");
 			const swiper = new Swiper('.swiper', {
-			  // Optional parameters
-			  loop: false,
-			  autoplay: {
-			    delay: 2500,
-			    disableOnInteraction: false
-			  },
-			  // If we need pagination
-			  pagination: {
-			    el: ".swiper-pagination",
-			    type: "progressbar",
-			  },
-			  // Navigation arrows
-			  navigation: {
-			    nextEl: '.swiper-button-next',
-			    prevEl: '.swiper-button-prev',
-			  },
+				// Optional parameters
+				loop: false,
+				autoplay: {
+				    delay: 2500,
+				    disableOnInteraction: false
+				    },
+				// If we need pagination
+				pagination: {
+				    el: ".swiper-pagination",
+				    type: "progressbar",
+				},
+				// Navigation arrows
+				navigation: {
+				    nextEl: '.swiper-button-next',
+				    prevEl: '.swiper-button-prev',
+				},
 			});
 		</script>
-
 	</body>
 </html>
