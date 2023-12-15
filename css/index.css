@@ -42,14 +42,6 @@ html, body {
 	margin: 0 auto;
 }
 
-.ws-footer {
-	padding: 30px 15px;
-	line-height: 30px;
-	text-align: center;
-	color: #777;
-	box-shadow: _vwPC(0) _vwPC(10) _vwPC(20) rgba(67, 160, 160, .2)
-}
-
 .btn-weibo {
 	border: none;
 	color: white;
@@ -149,6 +141,67 @@ html, body {
 	background-repeat: no-repeat;
 }
 
+.header{
+    background-color: #fafafa;
+    width: 100%;
+    height: 60px;
+	z-index: 999;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	
+}
+.header .logo{
+    width: 200px;
+    height: 60px;
+    float: left;
+    text-align: center;
+}
+
+.header .nav{
+    float: right;
+}
+.mobile-icon{
+    display: none;
+}
+
+/* 演示元素 */
+.main{
+    margin-top: 20px;
+}
+@media screen and (max-width: 1024px) {
+    .header .logo{
+        text-align: left;
+    }
+    .header .nav{
+        display: none;
+        width: 100%;
+        position: absolute;
+        z-index: 99;
+        top: 61px; /* 如果需要缝隙，可将值调至61px */
+        margin-left: -15px;
+    }
+    .layui-nav{
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    .header .nav li{
+        width: 100%;
+        text-align: center;
+    }
+    .mobile-icon{
+        display: block;
+        color: #1f1f1f;
+        font-size: 30px;
+        float: right;
+        margin-top: 20px;
+    }
+    .layui-nav .layui-this:after,
+    .layui-nav-bar,
+    .layui-nav-tree .layui-nav-itemed:after {
+        height: 1px;
+        background-color: #5FB878;
+    }
+}
+
 @media screen and (max-width:400px) {
 	.swiper {
 		width: 100%;
@@ -238,7 +291,6 @@ html, body {
 		margin: auto;
 	}
 }
-
 
 .index-KeyVisual_Twitter {
     position: absolute;

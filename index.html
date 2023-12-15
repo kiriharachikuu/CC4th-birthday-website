@@ -112,15 +112,36 @@
 	
 	<!-- 开始 -->
 	<body>
+		<div class="header">
+		    <div class="layui-container">
+		        <div class="logo">
+		            <a href=""><img src="img/logo.webp" height="50"></a>
+		        </div>
+		        <i class="layui-icon mobile-icon layui-icon-more-vertical"></i>
+		        <div class="nav">
+		            <ul class="layui-nav layui-bg-gray">
+		                <li class="layui-nav-item"><a href="">联系我们</a></li>
+		                <li class="layui-nav-item"><a href="">关于我们</a></li>
+		                <li class="layui-nav-item"><a href="">加入我们</a></li>
+		                <li class="layui-nav-item">							
+						</li>
+		            </ul>
+		        </div>
+		    </div>
+		</div>
+		<script>
+		    //JavaScript代码区域
+		    layui.use(['element', 'layer'], function () {
+		           var element = layui.element;
+		    var layer = layui.layer;
+		    		
+		    });
+		    $(".mobile-icon").click(function () {
+		          $(".nav").toggleClass('layui-show');
+		    });
+		</script>
 		<div class="page-container layui-bg-gray">
 			<!-- 导航 -->
-			<ul class="layui-nav layui-bg-gray">
-				<li class="layui-nav-item">
-					<img src="img/logo.webp" height="50">
-				</li>
-				<span class="layui-nav-bar" style="width: 0px; left: 0px; opacity: 0;">
-				</span>
-			</ul>
 			
 			<!-- 轮播 -->
 			<div class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
@@ -222,6 +243,7 @@
 				        </div>
 				    </div>
 				</div>
+				
 				<!-- 导语 -->
 				<div class="layui-bg-gray" style="padding: 16px;">
 					<div class="hezuo">
