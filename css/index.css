@@ -1433,7 +1433,6 @@ html, body {
 }
 
 .st-Footer_PageTop a.scroll {
-    display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
     align-items: center;
