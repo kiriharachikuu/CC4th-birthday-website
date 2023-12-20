@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html  lang="zh-cn">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" /> 
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>ChiliChill 2024 日历</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+			}
+			body{
+				background: #ccc;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				background-image: linear-gradient(to top,#fad0c4 0%,#ffd1ff 100%);
+			}
+			.shell{
+				position: relative;
+				width: 520px;
+				border-radius: 0 0 1em 1em;
+				box-shadow: 0 19px 38px rgba(0, 0, 0, 0.2), 0 15px 12pxrgba(0, 0, 0, 0.2);
+			}
+			.shell header{
+				border-radius: 1em 1em 0 0;
+				background: #e66b6b;
+				color: #fff;
+				padding: 3em 2em;
+				background-image: url(./calendar/4th.png);
+				background-size: cover;
+			}
+			.day{
+				font-size: 8em;
+				font-weight: 900;
+				line-height: 1em;
+				text-shadow: 2px 2px 5px #565656;
+			}
+			.month{
+				font-size: 4em;
+				line-height: 1em;
+				text-transform: lowercase;
+				text-shadow: 2px 2px 5px #565656;
+			}
+			.calendar{
+				width: 100%;
+				background: #fff;
+				border-radius: 0 0 1em 1em;
+				box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2), 0 3px 1px #fff;
+				color: #000;
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				align-items: center;
+				padding: 20px;
+			}
+			.calendar-week{
+				color: #e66b6b;
+				font-weight: 700;
+				text-transform: uppercase;
+			}
+			.calendar li{
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				text-align: center;
+				font: 600 17px '';
+				transition: 0.2s;
+			}
+			.calendar ul li:hover{
+				background: #da89a2;
+				color: #fff;
+			}
+			.current-day{
+				color: #e66b6b;
+			}
+			.prev-month, 
+			.next-month{
+				color: #cacaca;
+			}
+			.ring-left, 
+			.ring-right{
+				position: absolute;
+				top: 256px;
+			}
+			.ring-left{
+				left: 2em;
+			}
+			.ring-right{
+				right: 2em;
+			}
+			.ring-left:before,
+			.ring-right:before{
+				background: #fff;
+				border-radius: 4px;
+				box-shadow: 0 3px 1px rgba(0, 0, 0, 0.3), 0 -1px 1px rgba(0, 0, 0, 0.2);
+				content: "";
+				display: inline-block;
+				margin: 8px;
+				height: 32px;
+				width: 8px;
+			}
+	        /*上个月的超链接显示样式*/
+	        #pre{
+	            position: absolute;
+	            top: 0px;
+	            left: 0px;
+	            background: url(./calendar/left.png) no-repeat 50% 50%;
+	            /*没规定大小时，图片显示 0X0*/
+	            width: 60px;
+	            height: 70px;
+	        }
+	        /*下个月的超链接显示样式*/
+	        #next{
+	            position: absolute;
+	            top: 0px;
+	            right: 0px;
+	            background: url(./calendar/right.png) no-repeat 50% 50%;
+	            width: 60px;
+	            height: 70px;
+	        }
+	        .body-list ul{
+	            font-size: 14px;
+	            font-family: Arial, Helvetica, sans-serif;
+	            font-weight: bold;
+	            width: 100%;
+	            box-sizing: border-box;
+				color: #000;
+				font-weight: 700;
+				text-transform: uppercase;
+	
+	        }
+	        .body-list li{
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				text-align: center;
+				font: 600 17px '';
+				transition: 0.2s;
+	            list-style: none;
+	            display: block;
+	            width: 14.28%;
+	            float: left;
+	            /*规定行高，垂直居中*/
+	            line-height: 36px;
+	            box-sizing: border-box;
+	            text-align: center;
+	        }
+			/*设置已经过去的日期颜色*/
+			.lightgrey{
+			    color:#a8a8a8;
+			}
+			/*设置将来的日期颜色*/
+			.darkgrey{
+			    color:#565656;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="shell">
+			<header>
+				<div class="day" id="calendar-year">11</div>
+				<div class="month" id="calendar-title">October</div>
+			</header>
+			<div class="calendar">
+				<div class="ring-left"></div>
+				<div class="ring-right"></div>
+				<a href="" id="pre"></a>
+				<a href="" id="next"></a>
+				<div class="body">
+				    <div class="lightgrey body-list">
+				        <!--使用无序列表标签显示星期-->
+				        <ul>
+				            <li class="calendar-week">Sun</li>
+				            <li class="calendar-week">Mon</li>
+				            <li class="calendar-week">Tue</li>
+				            <li class="calendar-week">Wed</li>
+				            <li class="calendar-week">Thu</li>
+				            <li class="calendar-week">Fri</li>
+				            <li class="calendar-week">Sat</li>
+				        </ul>
+				    </div>
+				    <!--使用无序列表标签显示日期，日期使用JavaScript动态获取，然后使用innerHTML设置<ul>标签之间的HTML-->
+				    <div class="darkgrey body-list">
+				        <ul id="days">
+				
+				        </ul>
+				    </div>
+				</div>
+				<p>Powered by：桐原知空</p>
+				<p>© 2023-2024 ChiliChill Fans Project.</p>
+				<p>*头图为每月更新（大概）</p>
+		    </div>
+		</div>		
+		
+		    
+		<script type="text/javascript">
+		    var month_olypic = [31,29,31,30,31,30,31,31,30,31,30,31];//正常年份12个月对应的天数
+		    var month_normal = [31,28,31,30,31,30,31,31,30,31,30,31];//闰年中12个月对应的天数
+		    var month_name =["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"];//定义要显示的月份数组
+		    //获取以上各个部分的id
+		    var holder = document.getElementById("days");
+		    var prev = document.getElementById("prev");//上个月份的超链接id
+		    var next = document.getElementById("next");//下个月份的超链接id
+		    var ctitle = document.getElementById("calendar-title");
+		    var cyear = document.getElementById("calendar-year");
+		    //获取当天的年月日
+		    var my_date = new Date();
+		    var my_year = my_date.getFullYear();//获取年份
+		    var my_month = my_date.getMonth(); //获取月份，下标从0开始
+		    var my_day = my_date.getDate();//获取当前日期
+		
+		    //根据年月获取当月第一天是周几
+		    function dayStart(month,year){
+		        var tmpDate = new Date(year, month, 1);
+		        return (tmpDate.getDay());
+		    }
+		    //根据年份判断某月有多少天，主要是区分闰年
+		    function daysMonth(month, year){
+		        var tmp1 = year % 4;
+		        var tmp2 = year % 100;
+		        var tmp3 = year % 400;
+		
+		        if((tmp1 == 0 && tmp2 != 0) || (tmp3 == 0)){
+		            return (month_olypic[month]);//闰年
+		        }else{
+		            return (month_normal[month]);//非闰年
+		        }
+		    }
+		
+		    function refreshDate(){
+		        var str = "";
+		        //计算当月的天数和每月第一天都是周几
+		        var totalDay = daysMonth(my_month,my_year);
+		        var firstDay = dayStart(my_month, my_year);
+		        //添加每个月前面的空白部分，即若某个月的第一天是从周三开始，则前面的周一，周二需要空出来
+		        for(var i = 0; i < firstDay; i++){
+		            str += "<li>"+"</li>";
+		        }
+		
+		        //从一号开始添加到totalDay（每个月的总天数），并为pre，next和当天添加样式
+		        var myclass;
+		        for(var i = 1; i <= totalDay; i++){
+		            //如果是已经过去的日期，则用浅灰色显示
+		            if((my_year < my_date.getFullYear())||(my_year == my_date.getFullYear() &&
+		                my_month < my_date.getMonth()) || (my_year == my_date.getFullYear() &&
+		                my_month == my_date.getMonth() && i < my_day)){
+		                myclass = " class='lightgrey'";
+		            }
+		            //如果正好是今天，则用绿色显示
+		            else if(my_year == my_date.getFullYear() && my_month == my_date.getMonth() && i == my_day){
+		                myclass = "class = 'current-day'";
+		            }
+		            //将来的日期用深灰色显示
+		            else{
+		                myclass = "class = 'darkgrey'";
+		            }
+		            str += "<li "+myclass+">"+i+"</li>";
+		        }
+		        holder.innerHTML = str;//为日期的列表标签设置HTML；
+		        ctitle.innerHTML = month_name[my_month];//设置当前显示的月份
+		        cyear.innerHTML = my_year;//设置当前显示的年份
+		    }
+		    refreshDate();//显示日期，更新界面
+		    //上个月的点击事件
+		    pre.onclick = function(e){
+		        e.preventDefault();
+		        my_month--;
+		        if(my_month < 0){
+		            my_year--;
+		            my_month = 11;
+		        }
+		        refreshDate();//更新界面
+		    }
+		    //下个月的点击事件
+		    next.onclick = function(e){
+		        e.preventDefault();
+		        my_month++;
+		        if(my_month > 11){
+		            my_month = 0;
+		            my_year++;
+		        }
+		        refreshDate();//更新界面
+		    }
+		</script>
+		<script type="text/javascript">
+		        var phoneWidth =  parseInt(window.screen.width);
+		        var phoneScale = phoneWidth/640;
+		        var ua = navigator.userAgent;
+		        if (/Android (\d+\.\d+)/.test(ua)){
+		            var version = parseFloat(RegExp.$1);
+		            if(version>2.3){
+		                document.write('<meta name="viewport" content="width=640, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+		            }else{
+		                document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+		            }
+		        } else {
+		            document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+		        }
+		</script>
+	</body>
+</html>
