@@ -46,7 +46,7 @@
 		                shade: 0.8,
 		                closeBtn: 0,
 		                shadeClose: true,
-		                content: '//player.bilibili.com/player.html?aid=281465306&bvid=BV1ec411z75D&cid=1345564402&p=1' // video 地址
+		                content: '//player.bilibili.com/player.html?aid=281465306&bvid=BV1ec411z75D&cid=1345564402&p=1&page=1&high_quality=1&danmaku=0' // video 地址
 		            });
 		            layer.msg('点击空白区域可关闭');
 		        },
@@ -146,46 +146,40 @@
 			<!-- 轮播 -->
 			<div class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
 				<!-- Additional required wrapper -->
-				<div class="swiper-wrapper" id="swiper-wrapper-79df10a2e74b94104f" aria-live="off"
-				style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px); transition-delay: 0ms;">
+				<div class="swiper-wrapper">
 					<!-- Slides -->
-					<div class="swiper-slide swiper-slide-active" style="width: 1513px;" role="group"
-					aria-label="1 / 5">
+					<div class="swiper-slide">
 						<a href="https://p0tcb4ytf2i.feishu.cn/share/base/form/shrcnvTegnedLaa9zvZs69vUqZz" target="_blank">
 							<img src="img/banner/hoscar.webp" max-width="100%">
 						</a>
 					</div>
-					<div class="swiper-slide swiper-slide-next" style="width: 1513px;" role="group"
-					aria-label="2 / 5">
+					<div class="swiper-slide">
 						<a href="https://yvex4o13ytq.feishu.cn/share/base/form/shrcnsyZMY0MR9nrzpwRiubfNVh" target="_blank">
 							<img src="img/banner/2.webp" max-width="100%">
 						</a>
 					</div>
-					<div class="swiper-slide" style="width: 1513px;" role="group" aria-label="3 / 5">
+					<div class="swiper-slide">
 						<a href="https://yvex4o13ytq.feishu.cn/docx/LWVRdaUXVo5pUHxABJFcqFg6n1d" target="_blank">
 							<img src="img/banner/4.webp" max-width="100%">
 						</a>
 					</div>
-					<div class="swiper-slide" style="width: 1513px;" role="group" aria-label="4 / 5">
+					<div class="swiper-slide">
 						<a href="">
 							<img src="img/banner/1.webp" max-width="100%">
 						</a>
 					</div>
-					<div class="swiper-slide" role="group" aria-label="5 / 5" style="width: 1513px;">
+					<div class="swiper-slide">
 						<a href="">
 							<img src="img/banner/3.webp" max-width="100%">
 						</a>
 					</div>
 				</div>
-				<div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"
-				aria-controls="swiper-wrapper-79df10a2e74b94104f" aria-disabled="false">
+				<div class="swiper-button-next">
 				</div>
-				<div class="swiper-button-prev swiper-button-disabled" tabindex="-1" role="button"
-				aria-label="Previous slide" aria-controls="swiper-wrapper-79df10a2e74b94104f"
-				aria-disabled="true">
+				<div class="swiper-button-prev">
 				</div>
-				<div class="swiper-pagination swiper-pagination-progressbar swiper-pagination-horizontal">
-					<span class="swiper-pagination-progressbar-fill" style="transform: translate3d(0px, 0px, 0px) scaleX(0.2) scaleY(1); transition-duration: 300ms;">
+				<div class="swiper-pagination">
+					<span class="swiper-pagination-progressbar-fill">
 					</span>
 				</div>
 				<span class="swiper-notification" aria-live="assertive" aria-atomic="true">
@@ -471,8 +465,8 @@
 							<div class="layui-card">
 								<div class="layui-card-header">
 									<h3>
-										<span class="layui-badge layui-bg-green">
-											进行中
+										<span class="layui-badge">
+											已结束
 										</span>
 										“厚斯卡”2023年度颁奖典礼
 									</h3>
@@ -484,11 +478,16 @@
 									2023/12/31 00:00:00（以 GMT+08:00 为准）
 									<br>
 									<br>
-									<a href="https://p0tcb4ytf2i.feishu.cn/share/base/form/shrcnvTegnedLaa9zvZs69vUqZz" target="_blank">
-										<button type="button" class="layui-btn layui-btn-primary layui-border-green">
+										<button type="button" class="layui-btn layui-btn-disabled layui-btn-primary layui-border-green">
 											<i class="layui-icon layui-icon-release">
 											</i>
 											点击参与
+										</button>
+									<a href="#" target="_blank">
+										<button type="button" class="layui-btn layui-btn-primary layui-border-green">
+											<i class="layui-icon layui-icon-play">
+											</i>
+											观看视频
 										</button>
 									</a>
 								</div>
@@ -1114,6 +1113,21 @@
 				    prevEl: '.swiper-button-prev',
 				},
 			});
+		</script>
+		<script>
+			$.ajax({
+		    type: 'post',
+		    url: 'https://www.chilichill.site/liveroom.php',
+		    data: {
+		        room_id: 6,
+		    },
+		    success: function(res){
+		        var data = res.data.playurl_info.playurl.stream[1].format[0].codec[1];
+		        var url = data.url_info[0].host + data.base_url.split("?")[0];
+		        console.log(url);
+				document.getElementById('countdown').innerHTML='距离直播开始还有 '+hours+'小时'+minutes+'分'+seconds+'秒';
+		    }
+		    });
 		</script>
 	</body>
 </html>
